@@ -95,3 +95,12 @@ description: 创新驱动认知包（slug=cognition-innovation-driver）。把�
 - 本包是**判断框架**，不替代具体行业数据调研（需求规模/竞争格局请用 new-product-market-analysis 等证据型工具）。
 - 模型置信度：H97-H100/H101-H104/H105-H108/H109-H112 均为 S级归档蒸馏（何刚财经大课，2026-10-23）。
 - 更新规则：认知革命项目每新增创新相关模型，同步追加本包速查表与接线。
+
+---
+
+## 六、版本迭代注记（2026-10-25）
+
+- **何刚财经大课336/336全量收官**（2026-10-24）：本包创新链16律（H97-H112）为何刚课主题6蒸馏；H系列已扩至 **H01-H202**（全库3158）。
+- **姊妹包**：周期政策/泡沫排雷/价值选股/买卖纪律四层判断链（32律）已蒸馏为独立包 **hegang-history-driver**，创新判断的"方向（H100创新波浪）×周期位（hegang周期政策层）"组合使用。
+- **项目skill联动**：四层判断链已同步挂接 ecommerce-annual-planning / ecommerce-market-intelligence / ecommerce-holiday-report / ecommerce-content-ops / private-education-advisory / stock-portfolio-daily-report。
+- **网络图**：神经网络连接图 **v2.25**（H202全量节点）。
