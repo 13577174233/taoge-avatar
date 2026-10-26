@@ -1,0 +1,202 @@
+<html style="margin:0;padding:0;">
+<meta charset="utf-8">
+<title>饕哥认知操作系统·人脑神经网络连接图 v3.0</title>
+<style>
+body{margin:0;padding:0;background:#f4f0e8;color:#2b2b2b;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 40px;box-sizing:border-box;}
+h1{font-size:21px;margin:6px 0 4px;}
+.verdict{font-size:13.5px;color:#555;margin:0 0 10px;line-height:1.6;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px;}
+.badge{background:#2b2b2b;color:#fff;padding:4px 11px;border-radius:13px;font-size:12.5px;}
+.badge.gold{background:#8a6d1d;}
+.badge.teal{background:#2f7d6d;}
+svg.brain{display:block;width:100%;height:auto;background:#fff;border:1px solid #ddd;border-radius:14px;margin:6px 0 10px;}
+.zone{border-radius:16px;padding:13px 16px;margin:10px 0;border:1.5px solid;}
+.zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.zone-title{font-size:16.5px;font-weight:700;}
+.zone-tag{font-size:12px;color:#666;}
+.flow{text-align:center;font-size:12.5px;color:#999;margin:2px 0;letter-spacing:1px;}
+.groups{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+.group{border:1px dashed #c0b8a8;border-radius:10px;padding:8px 9px;flex:1 1 200px;background:rgba(255,255,255,.55);}
+.group-label{font-size:12.5px;font-weight:700;color:#6a6252;margin-bottom:6px;}
+.chip{display:inline-block;border-radius:8px;padding:5px 9px;margin:3px;border:1px solid #bbb;background:#fff;font-size:13px;line-height:1.35;cursor:default;}
+.chip .code{font-weight:700;}
+.chip .cnt{font-size:11.5px;color:#777;margin-left:3px;}
+.chip:hover{outline:2px solid #2b2b2b;}
+.engine{box-shadow:inset 0 0 0 1.5px #c9a227;}
+.engine::after{content:"引擎";font-size:10px;background:#c9a227;color:#fff;border-radius:6px;padding:1px 5px;margin-left:5px;vertical-align:1px;}
+.decision-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.dnode{background:#fff;border:1.5px solid #c97b2d;border-radius:10px;padding:7px 11px;font-size:13px;flex:1 1 200px;}
+.dnode b{display:block;font-size:13.5px;color:#a5601c;}
+.domain{background:#fff;border:1px solid #3d6b99;border-radius:10px;padding:7px 10px;font-size:12.8px;flex:1 1 170px;}
+.domain b{display:block;font-size:13.5px;color:#2f5a85;margin-bottom:2px;}
+.channel{background:#fff;border:1px solid #b4575c;border-radius:10px;padding:7px 10px;font-size:12.8px;flex:1 1 200px;}
+.channel b{display:block;font-size:13.5px;color:#96414a;margin-bottom:2px;}
+#detail{position:sticky;bottom:8px;background:#232323;color:#f2efe9;border-radius:12px;padding:10px 14px;font-size:13.5px;line-height:1.6;min-height:46px;margin-top:12px;z-index:5;}
+.legend{font-size:12.5px;color:#555;margin-top:14px;line-height:1.8;background:#fff;border:1px solid #e0d9c8;border-radius:10px;padding:10px 14px;}
+</style>
+<div class="wrap">
+<h1>饕哥认知操作系统 · 人脑神经网络连接图 v3.0</h1>
+<p class="verdict">结论先行：v3.0 废弃 v2.27「几百节点平铺」旧风格，改为大脑皮层四脑区分区——只保留核心大节点与重要标识（透镜编号+数量、五引擎、六域接口、输入通道）。全部数字以《模型地图.md》2026-10-26 登记口径与分身定义文件为准。</p>
+<div class="badges">
+<span class="badge">全库约 3379 模型</span>
+<span class="badge">连接图 v3.0</span>
+<span class="badge teal">体系版本 v2.30</span>
+<span class="badge gold">十七透镜口径 · 登记 18 系列</span>
+<span class="badge gold">五引擎主线</span>
+<span class="badge">六域业务接口</span>
+<span class="badge">17 门课程蒸馏完成</span>
+</div>
+
+<svg class="brain" viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- 大脑侧视示意：左前(额叶)→右后(枕叶) -->
+  <path d="M60 120 Q60 40 180 32 Q330 22 480 34 Q640 24 760 55 Q850 78 845 140 Q842 195 730 205 Q560 218 380 208 Q200 216 105 185 Q55 168 60 120 Z" fill="#f7f3ea" stroke="#bbb" stroke-width="1.5"/>
+  <!-- 前额叶(前/左) -->
+  <path d="M60 120 Q60 40 180 32 Q260 27 300 30 L300 210 Q200 216 105 185 Q55 168 60 120 Z" fill="#f6e2c4" stroke="#c97b2d" stroke-width="1.2"/>
+  <text x="175" y="118" font-size="15" font-weight="700" fill="#a5601c">前额叶·决策区</text>
+  <!-- 顶叶(上/中后) -->
+  <path d="M300 30 Q480 22 640 32 L640 118 L300 118 Z" fill="#dce8f5" stroke="#3d6b99" stroke-width="1.2"/>
+  <text x="430" y="80" font-size="15" font-weight="700" fill="#2f5a85">顶叶·实战接口区</text>
+  <!-- 颞叶(下/中) -->
+  <path d="M300 118 L640 118 L640 196 Q500 208 380 204 Q330 208 300 210 Z" fill="#d8ede5" stroke="#2f7d6d" stroke-width="1.2"/>
+  <text x="400" y="165" font-size="15" font-weight="700" fill="#1f6a59">颞叶·知识库区(十七透镜)</text>
+  <!-- 枕叶(后/右) -->
+  <path d="M640 32 Q760 42 830 80 Q852 105 845 140 Q842 185 760 200 L640 196 L640 118 L640 32 Z" fill="#f6dcdc" stroke="#b4575c" stroke-width="1.2"/>
+  <text x="700" y="120" font-size="14" font-weight="700" fill="#96414a">枕叶·输入区</text>
+  <!-- 信号流向箭头 -->
+  <path d="M720 150 C 600 150 560 160 500 165" fill="none" stroke="#b4575c" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M460 190 C 460 150 480 120 500 95" fill="none" stroke="#2f7d6d" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M520 70 C 420 60 320 70 230 95" fill="none" stroke="#3d6b99" stroke-width="1.4" marker-end="url(#ar)"/>
+  <path d="M200 150 C 300 175 380 180 430 178" fill="none" stroke="#c97b2d" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+  <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#888"/></marker></defs>
+</svg>
+
+<!-- ① 前额叶决策区 -->
+<section class="zone" style="border-color:#c97b2d;background:#fdf3e3;">
+  <div class="zone-head">
+    <span class="zone-title">① 前额叶 · 决策区</span>
+    <span class="zone-tag">现象→本质→判断：一切判断的出口，本质判断力汇聚点</span>
+  </div>
+  <div class="decision-row">
+    <div class="dnode" data-detail="<b>三实模型（H01）</b><br>决策框架第一步：先列事实（数据/证据）→ 再归现实（机制/因果）→ 后达共识（结论/行动）。报告/分析/判断一律按此结构输出。"><b>三实模型 H01</b>事实→现实→共识，所有输出的默认骨架</div>
+    <div class="dnode" data-detail="<b>透镜选型</b><br>判断问题属哪个域 → 调对应透镜模型群（见颞叶十七透镜）。选错透镜=用锤子看所有钉子。"><b>透镜选型</b>判域 → 调对应透镜群</div>
+    <div class="dnode" data-detail="<b>跨透镜接线</b><br>一个问题至少用2个透镜互证，避免单透镜偏见。例：电商定价=E价格机制 × Z消费政策 × H周期位置。"><b>跨透镜接线</b>≥2透镜互证，防单透镜偏见</div>
+    <div class="dnode" data-detail="<b>饕哥关切三段</b><br>任何分析最后必落三段：①电商业务（昆明冠生园）怎么做；②股票投资（18只持仓）怎么看；③个人IP/认知怎么用。没有落点的分析不输出。"><b>饕哥关切三段</b>电商怎么做 / 投资怎么看 / IP怎么用</div>
+  </div>
+  <div class="decision-row">
+    <div class="dnode" data-detail="<b>高频判断速查核心</b><br>W84 第一性原理（剥到最底层重构）· C82 默认值律（凡事先找 base rate）· C13 贝叶斯更新（新赔率=旧赔率×似然比）· W24 凯利公式（胜率×赔率定仓位）· H50 经济周期轮回（繁荣期备好下轮危机的钱）。"><b>高频速查核心</b>W84第一性 · C82默认值 · C13贝叶斯 · W24凯利 · H50周期</div>
+    <div class="dnode" data-detail="<b>五引擎主线（来自颞叶，前额叶调用）</b><br>政经引擎Z89（现在什么在发生）→ 创新引擎H97-H112创新链16律（新东西怎么长出来）→ 认知训练引擎C90（怎么想才不被骗）→ 产品引擎LP30（做出用户要的东西）→ 增长引擎LG31（业务怎么持续增长）。"><b>五引擎调用</b>Z政经 → H创新 → C认知 → LP产品 → LG增长</div>
+  </div>
+</section>
+<div class="flow">▼ 信号流：枕叶输入 → 颞叶存储 → 顶叶调用 → 前额叶决策（实线）｜前额叶反向调控颞叶（虚线回路）▼</div>
+
+<!-- ② 颞叶知识库区 -->
+<section class="zone" style="border-color:#2f7d6d;background:#eef7f3;">
+  <div class="zone-head">
+    <span class="zone-title">② 颞叶 · 知识库区</span>
+    <span class="zone-tag">十七透镜口径 · 实际登记 18 系列（金色边框=五引擎）｜悬停芯片看详情</span>
+  </div>
+  <div class="groups">
+    <div class="group">
+      <div class="group-label">宏观经济群（大时空坐标）</div>
+      <span class="chip" data-detail="<b>E 经济学透镜 · 1300</b><br>来源：薛兆丰经济学课（393篇归档）。看什么：微观机制/价格/产权/行为。代表律：E05规模经济/E机会成本。占全库约38%，是最大的单透镜。"><span class="code">E</span><span class="cnt">经济学·1300</span></span>
+      <span class="chip engine" data-detail="<b>Z 政经透镜 · 89</b><br>来源：马江博政经参考。看什么：当下政策/制度/宏观方向。<b>引擎=政经引擎</b>：解决"现在什么在发生"。代表律：Z66预期管理核心律/Z71信用锚转换/Z76科技牛改革牛。"><span class="code">Z</span><span class="cnt">政经·89</span></span>
+      <span class="chip engine" data-detail="<b>H 财经大课透镜 · 202</b><br>来源：何刚财经大课（336/336讲收官）。看什么：大历史/周期/泡沫/价值投资/制度变迁/转轨经济。<b>引擎=创新引擎</b>：H97-H112创新链16律（技术×人×组织×实践×团队）。投资四层主线：周期H50/泡沫H133/价值H113/纪律H120。"><span class="code">H</span><span class="cnt">财经大课·202</span></span>
+      <span class="chip" data-detail="<b>F 财富自由透镜 · 900</b><br>来源：李笑来财富自由之路（246篇）。看什么：个人行动/成长/投资认知。代表律：定投/不懂不买/刚需原则。注：模型地图正文登记17行，全量清单883-900口径，以登记口径900为准。"><span class="code">F</span><span class="cnt">财富自由·900</span></span>
+    </div>
+    <div class="group">
+      <div class="group-label">金融财务群（钱的三要素）</div>
+      <span class="chip" data-detail="<b>J 金融透镜 · 266</b><br>来源：香帅北大金融学课（266篇全归档）。看什么：金融本质/机构/工具/决策/监管/科技。金融三要素=时间×风险×杠杆。代表律：J03时间价值/J108方差偏度肥尾/J218信用崩塌/J220明斯基时刻。"><span class="code">J</span><span class="cnt">金融·266</span></span>
+      <span class="chip" data-detail="<b>FN 财务透镜 · 41</b><br>来源：贾宁财务思维课（41篇全量）。看什么：算账/资产/利润/现金流/造假识别/融资分配。代表律：FN02三表体检/FN05负债两分/FN09现金生死/FN21杜邦三齿轮/FN12造假刑侦。"><span class="code">FN</span><span class="cnt">财务·41</span></span>
+      <span class="chip" data-detail="<b>XJ 行为金融透镜 · 38</b><br>来源：陆蓉行为金融学（38篇全）。看什么：人怎么在市场系统性犯错/偏差/交易错误/行为策略。代表律：XJ01错可预测/XJ10参考点依赖/XJ17配置定盘/XJ22大盘可预测（P/E碰顶=系统性风险信号）。"><span class="code">XJ</span><span class="cnt">行为金融·38</span></span>
+    </div>
+    <div class="group">
+      <div class="group-label">商业管理群（企业怎么赢）</div>
+      <span class="chip" data-detail="<b>MG 管理透镜 · 43</b><br>来源：宁向东管理学课（352讲全量处理，248篇S级归档）。看什么：破局/人性行为/团队/组织设计/客户竞争/业绩激励/控制变革。代表律：MG27情境领导/MG47塔克曼五阶段/MG82组织设计/MG248科特八步。"><span class="code">MG</span><span class="cnt">管理·43</span></span>
+      <span class="chip" data-detail="<b>LD 领导力透镜 · 35</b><br>来源：刘澜领导力30讲（36篇全）。看什么：动员群众解决难题/十句口诀/领导vs管理/追随力/反思。代表律：LD06我来口诀/LD12你觉得呢/LD23反思本质/LD22失败七分类。"><span class="code">LD</span><span class="cnt">领导力·35</span></span>
+      <span class="chip" data-detail="<b>BI 商业洞察透镜 · 39</b><br>来源：刘润商业洞察力30讲（35篇全）。看什么：系统连接关系/五结构模块/五把刀/九基模。代表律：BI06增强回路/BI15根本解/BI23舍本逐末/BI24富者愈富。"><span class="code">BI</span><span class="cnt">商业洞察·39</span></span>
+      <span class="chip" data-detail="<b>SW 商业实战透镜 · 76</b><br>来源：5分钟商学院·实战（342讲全量，340篇S级归档）。看什么：用户心理/渠道触点/营销传播/产品需求/定价歧视/商业模式/团队治理/复盘道场。代表律：SW21有效流量/SW116三级价格歧视/SW126 RFM/SW196激励系数。"><span class="code">SW</span><span class="cnt">商业实战·76</span></span>
+      <span class="chip" data-detail="<b>BR 品牌营销透镜 · 28</b><br>来源：跟华杉学品牌营销30讲（33讲全）。看什么：超级符号/品牌三原理/传播三原理/营销4P/消费者四角色。代表律：BR04超级符号/BR07营销日历/BR12成本原理/BR15刺激反射。"><span class="code">BR</span><span class="cnt">品牌营销·28</span></span>
+    </div>
+    <div class="group">
+      <div class="group-label">产品增长群（做出来+长起来）</div>
+      <span class="chip engine" data-detail="<b>LP 产品透镜 · 30</b><br>来源：梁宁产品思维30讲（30篇全）。看什么：同理心/机会判断/系统能力/用户体验/创新。<b>引擎=产品引擎</b>。代表律：LP08点线面体/LP10痛痒爽三感/LP23用户价值公式/LP20峰终定律。"><span class="code">LP</span><span class="cnt">产品·30</span></span>
+      <span class="chip engine" data-detail="<b>LG 增长透镜 · 31</b><br>来源：梁宁增长思维30讲（LG00-LG31全）。看什么：认知地图/机会/模式/组织承接/借势/增长底牌。<b>引擎=增长引擎</b>。代表律：LG07破局点/LG13用户增长闭环/LG21支点杠杆/LG30增长底牌。"><span class="code">LG</span><span class="cnt">增长·31</span></span>
+      <span class="chip" data-detail="<b>YX 营销实战透镜 · 23</b><br>来源：小马宋营销实战22讲（23篇全）。看什么：4P框架/产品定价渠道推广/渠道生死/推广转化/POM购买逻辑。代表律：YX05待办任务/YX09定价杠杆/YX12渠道生死/YX22 POM三力。"><span class="code">YX</span><span class="cnt">营销实战·23</span></span>
+    </div>
+    <div class="group">
+      <div class="group-label">认知工具群（怎么想才不被骗）</div>
+      <span class="chip engine" data-detail="<b>C 认知训练透镜 · 90</b><br>来源：30天认知训练营三季102讲（王烁，93篇归档）。看什么：认知防身/博弈/风险/权谋/统计决策/社会动力学。<b>引擎=认知训练引擎</b>：解决"我怎么想才不被骗、不被坑、不被自己蠢死"。代表律：C01误判心理学/C61时间坐庄/C75均衡识别/C82默认值。"><span class="code">C</span><span class="cnt">认知训练·90</span></span>
+      <span class="chip" data-detail="<b>W 通用工具透镜 · 44</b><br>来源：万维钢现代思维工具100讲。看什么：通用思维工具/第一性原理。代表律：W84第一性原理/W22贝叶斯先验/W24凯利公式/W39慢变量。注：模型地图正文登记32条，全课口径100工具，登记口径44。"><span class="code">W</span><span class="cnt">通用工具·44</span></span>
+      <span class="chip" data-detail="<b>R 阅读写作透镜 · 27</b><br>来源：吴军阅读与写作50讲。看什么：怎么高效吸收信息+精准表达输出。代表律：R01三步阅读/R04写作五步/R09非常主张非常证据/R24纪实报道原则。"><span class="code">R</span><span class="cnt">阅读写作·27</span></span>
+    </div>
+    <div class="group">
+      <div class="group-label">基础格栅（早期底层 24 条）</div>
+      <span class="chip" data-detail="<b>P 心理学透镜 · 8</b><br>早期基础格栅：人怎么想、怎么错。P01确认偏误/P05损失厌恶/P07认知失调等8条，与XJ行为金融互为表里（P讲实验起源，XJ讲市场落地）。"><span class="code">P</span><span class="cnt">心理学·8</span></span>
+      <span class="chip" data-detail="<b>S 系统论透镜 · 6</b><br>早期基础格栅：事物怎么演化。S01正反馈/S02负反馈/S03涌现/S04瓶颈约束/S05杠杆/S06临界点。"><span class="code">S</span><span class="cnt">系统论·6</span></span>
+      <span class="chip" data-detail="<b>B 生物学透镜 · 4</b><br>早期基础格栅：生命怎么适应。B01演化选择/B02生态位/B03共生/B04红皇后效应。"><span class="code">B</span><span class="cnt">生物学·4</span></span>
+      <span class="chip" data-detail="<b>G 工程透镜 · 2</b><br>早期基础格栅：怎么稳妥地赢。G01安全边际/G02逆向思维。另：早期"商业透镜"C01-C04（能力圈/护城河/网络效应/二阶思维）与认知训练C系列同号段，为历史编号重叠，已并入C透镜口径。"><span class="code">G</span><span class="cnt">工程·2</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ③ 顶叶实战接口区 -->
+<section class="zone" style="border-color:#3d6b99;background:#eef3f9;">
+  <div class="zone-head">
+    <span class="zone-title">③ 顶叶 · 实战接口区</span>
+    <span class="zone-tag">六域业务接口：颞叶透镜群向下落地的六条通路，每域挂核心技能包</span>
+  </div>
+  <div class="groups">
+    <div class="domain" data-detail="<b>电商域（昆明冠生园电商事业中心）</b><br>核心技能包：电商事业中心认知技能包v2.5 + OGSM年度规划 + 四域情报12SOP + 内容叙事。内部证据：增收不增利（毛利-2.9pct）/全年利润靠中秋9月/达播负毛利放量门槛净ROI≥1:2。2027口径：含税GMV 4000万，低糖云腿300万爆品第二曲线，SKU 100+压至50+，考毛利非销售额。"><b>电商域</b>冠生园电商中心·技能包v2.5+OGSM+情报SOP</div>
+    <div class="domain" data-detail="<b>投资域（A股18只持仓）</b><br>每日8:30定时行情日报v4.2（指数缠论日线+15分钟/次日操作参考/K线图集）。投资四层主线：周期H50→泡沫H133→价值H113/H182→纪律H120。加持：J估值风控+XJ行为纠偏+FN造假三信号+Z政策波段。核心持仓：潍柴动力/云天化/立讯精密/诺德股份/多类ETF。"><b>投资域</b>18只持仓·8:30日报v4.2·四层投资主线</div>
+    <div class="domain" data-detail="<b>教育域（唐翌轩·2029届高考）</b><br>私人教育顾问专家团（4技能+9角色）。孩子润城学校高一（班7/年177），物化生/物化地选科权衡，兴趣农业/动植物。目标：澳门大学或双一流/211/985末尾院校。加持：FN07机会成本算选科/XJ22长期视角不听短期排名噪音/YX05待办任务想清专业真实用途。"><b>教育域</b>唐翌轩2029届·4技能9角色顾问团</div>
+    <div class="domain" data-detail="<b>健康域（私人医生专家顾问团）</b><br>50岁男性健康管理：精力/性欲/补剂/传统滋补；历年体检报告归档分析；日常用药咨询。工具：taoge-health-advisory + 体检报告解读 + 循证医学回答。"><b>健康域</b>私人医生顾问团·体检归档+用药咨询</div>
+    <div class="domain" data-detail="<b>文案域（三平台双账号）</b><br>小红书「读书的饕哥」（赞藏2186，模板化成品化图文）；大众点评「昆明老饕」（真实食客型，六段式禁网红词）；朋友圈#读书涛哥（两段式点题+动作排比收尾，零emoji）。通用：去AI味、按需输出。"><b>文案域</b>读书的饕哥 / 昆明老饕 / 读书涛哥</div>
+    <div class="domain" data-detail="<b>娱乐域（个人娱乐团队v1.0）</b><br>六领域：影视/国创动漫/有声小说网文/旅游/美食/文博展览。豆瓣选片雷达：悬疑犯罪优先，信任王凯/黄子华/段奕宏/张译/王传君/潘粤明/雷佳音段，避带资进组与逻辑崩。"><b>娱乐域</b>影视/国创/网文/旅游/美食/文博</div>
+  </div>
+</section>
+<div class="flow">▼ 信号流（生理方向）：枕叶接收外部输入 → 颞叶存储蒸馏 → 顶叶接业务调用 → 前额叶做最终判断 ▼</div>
+
+<!-- ④ 枕叶感知输入区 -->
+<section class="zone" style="border-color:#b4575c;background:#fbf0f0;">
+  <div class="zone-head">
+    <span class="zone-title">④ 枕叶 · 感知输入区</span>
+    <span class="zone-tag">外部信息四条通道：只进核心蒸馏结果，原始噪音不入库</span>
+  </div>
+  <div class="groups">
+    <div class="channel" data-detail="<b>课程学习流水线</b><br>深度阅读官读课 → 模型蒸馏师按蒸馏瓶格式蒸馏 → 模型地图登记编号 → 连接图升级。已完成17门课程：薛兆丰/李笑来/万维钢/吴军/王烁三季/何刚336讲/香帅266篇/梁宁两门/贾宁/陆蓉/小马宋/宁向东/刘澜/刘润/5分钟商学院/华杉。"><b>课程流水线</b>深度阅读官+蒸馏瓶·17门课蒸馏完成</div>
+    <div class="channel" data-detail="<b>浏览器采集通道</b><br>抓取级联web-scraping + 受限内容content-access + 页面监控page-monitoring + 免费API目录free-apis-catalog（v2.7抓取能力矩阵）。用于竞品舆情/行业报告/政策原文采集。"><b>浏览器采集</b>抓取级联+受限获取+页面监控+免费API</div>
+    <div class="channel" data-detail="<b>图书蒸馏线</b><br>个人读书系统（5本四合一归档）+ 饕哥读书蒸馏瓶taoge-distill-bottle。图书先蒸馏成原子律，再以系列编号入模型地图（如H系列书单段：《光荣与梦想》《繁荣与萧条》《通论》等已入库）。"><b>图书蒸馏</b>个人读书系统+蒸馏瓶合集</div>
+    <div class="channel" data-detail="<b>搜索渠道</b><br>全站搜索→结果页列表→逐条取URL（何刚通道已打通，151-305缺口批量补齐）。用于历史口径核验/事实核查/跨透镜接线证据溯源。"><b>搜索渠道</b>全站搜索·证据溯源与口径核验</div>
+  </div>
+</section>
+
+<!-- 详情面板 -->
+<div id="detail">悬停任意透镜芯片 / 脑区节点 / 业务域 / 输入通道，这里显示该节点的完整标识：编号+数量+来源课程+看什么+代表律。初始状态为操作提示——主图本身已可读，不依赖悬停。</div>
+
+<!-- 图例与口径 -->
+<div class="legend">
+<b>图例与口径</b><br>
+· 金色边框+「引擎」徽标 = 五引擎主线节点（Z政经 / H创新 / C认知训练 / LP产品 / LG增长），是前额叶决策的高频调用对象。<br>
+· 透镜短标签格式 = 系列号·名称·登记数量（如 E经济学·1300），数量以《模型地图.md》2026-10-26登记+分身定义文件为准。<br>
+· 连接线含义：实线箭头=信号向上流（输入→存储→调用→决策）；前额叶→颞叶虚线=决策回路反向调控（判断结果写回模型库做复盘蒸馏）。<br>
+· 版本：神经网络连接图 v3.0（2026-10-26，脑区分区重构版）｜体系版本 v2.30｜全库约3379模型（登记口径，待v3.0落表复核，误差±5）。<br>
+· 历史版本v2.27及以前（节点平铺版）全部保留在原目录，未改动。
+</div>
+</div>
+
+<script>
+(function(){
+  var box = document.getElementById('detail');
+  if(!box) return;
+  var nodes = document.querySelectorAll('[data-detail]');
+  function show(html){ try{ box.innerHTML = html; }catch(e){} }
+  for(var i=0;i<nodes.length;i++){
+    (function(n){
+      n.addEventListener('mouseenter', function(){ show(n.getAttribute('data-detail')); });
+      n.addEventListener('click', function(){ show(n.getAttribute('data-detail')); });
+    })(nodes[i]);
+  }
+})();
+</script>
+</html>
