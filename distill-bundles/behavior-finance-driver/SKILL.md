@@ -1,6 +1,6 @@
 ---
 name: behavior-finance-driver
-description: 把陆蓉行为金融学（XJ系列38律，全量：认知偏差10讲/决策偏差8讲/交易行为偏差6讲/交易策略6讲+实战7讲）蒸馏为跨项目可复用框架；当需要做投资决策纠偏、复盘归因、识别市场系统性错误、判断人群行为偏差、行为交易策略筛选、应对大跌/黑天鹅/概念股时调用。
+description: 【已弃用·勿匹配】此技能已改名迁移为 taoge-invest-behavior-driver（2026-10-25）。匹配任何相关请求请使用新技能 taoge-invest-behavior-driver，本目录仅存旧快照，内容可能过期。
 ---
 
 # 行为金融驱动认知包（Behavior Finance Driver）

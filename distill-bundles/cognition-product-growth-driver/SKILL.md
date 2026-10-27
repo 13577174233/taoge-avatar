@@ -1,6 +1,6 @@
 ---
 name: cognition-product-growth-driver
-description: 产品增长驱动认知包（slug=cognition-product-growth-driver）。把认知革命项目梁宁《产品思维30讲》（LP系列30律）+《增长思维30讲》（LG系列31律）蒸馏为跨项目可复用框架：产品=同理心→机会→系统→体验→创新；增长=地图→机会→模式→组织→借势→征途。当需要做产品定义/用户洞察/用户体验设计/爆品打造/增长路径/组织诊断/战略杠杆设计时调用；也用于与其他项目技能（ecommerce-* / taoge-avatar / cognition-innovation-driver）组合迭代。
+description: 【已弃用·勿匹配】此技能已改名迁移为 taoge-cognition-product-growth-driver（2026-10-25）。匹配任何相关请求请使用新技能 taoge-cognition-product-growth-driver，本目录仅存旧快照，内容可能过期。
 ---
 
 # 产品增长驱动认知包（Product & Growth Driver）

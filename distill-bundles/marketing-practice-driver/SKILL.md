@@ -1,6 +1,6 @@
 ---
 name: marketing-practice-driver
-description: 把小马宋营销实战22讲（YX系列23律，全量：Product 6讲/Price 3讲/Place 4讲/Promotion 5讲+口号/底层逻辑/结语）蒸馏为跨项目可复用框架；当需要做产品定义与赛道选择、定价策略与价格金字塔、渠道生死判断与渠道创新、推广转化与AB测试、品牌口号撰写、营销ROI测算时调用。
+description: 【已弃用·勿匹配】此技能已改名迁移为 taoge-ecom-marketing-driver（2026-10-25）。匹配任何相关请求请使用新技能 taoge-ecom-marketing-driver，本目录仅存旧快照，内容可能过期。
 ---
 
 # 营销实战驱动认知包（Marketing Practice Driver）

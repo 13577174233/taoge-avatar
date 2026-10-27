@@ -1,6 +1,6 @@
 ---
 name: cognition-innovation-driver
-description: 创新驱动认知包（slug=cognition-innovation-driver）。把认知革命项目何刚《财经大课》主题6五本书蒸馏的创新链16律（H97-H112）封装为跨项目可复用框架：创新=技术浪潮（第三次工业革命）×人的推动（熊彼特经济发展理论）×组织承接（克里斯坦森颠覆性创新）×实践验证（乔布斯传）×团队支撑（硅谷钢铁侠）。当需要判断创新成色、诊断组织变革阻力、定义产品（JTBD）、搭建创新团队、识别真伪颠覆、或把创新思维引入电商/投资/教育等业务决策时调用；也用于与其他项目技能（ecommerce-* / private-education-advisory / taoge-avatar）组合迭代。
+description: 【已弃用·勿匹配】此技能已改名迁移为 taoge-cognition-innovation-driver（2026-10-25）。匹配任何相关请求请使用新技能 taoge-cognition-innovation-driver，本目录仅存旧快照，内容可能过期。
 ---
 
 # 创新驱动认知包（Innovation Driver）
