@@ -1,6 +1,6 @@
 ---
 name: finance-thinking-driver
-description: 把贾宁财务思维课（FN系列41律，全量：表征三表13讲/融资与管理13讲/投资分配10讲+结束语加餐）蒸馏为跨项目可复用框架；当需要看公司经营真实状况、财报质量与造假识别、融资匹配与控制权、杜邦分析经营诊断、并购商誉与分红政策、个股财务体检时调用。
+description: 【已弃用·勿匹配】此技能已改名迁移为 taoge-invest-thinking-driver（2026-10-25）。匹配任何相关请求请使用新技能 taoge-invest-thinking-driver，本目录仅存旧快照，内容可能过期。
 ---
 
 # 财务思维驱动认知包（Finance Thinking Driver）
