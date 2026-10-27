@@ -1,6 +1,6 @@
 ---
 name: taoge-cognition-product-growth-driver
-description: 产品增长驱动认知包（slug=taoge-cognition-product-growth-driver）。把认知革命项目梁宁《产品思维30讲》（LP系列30律）+《增长思维30讲》（LG系列31律）蒸馏为跨项目可复用框架：产品=同理心→机会→系统→体验→创新；增长=地图→机会→模式→组织→借势→征途。当需要做产品定义/用户洞察/用户体验设计/爆品打造/增长路径/组织诊断/战略杠杆设计时调用。
+description: 产品增长驱动认知包（slug=taoge-cognition-product-growth-driver）。把认知革命项目梁宁《产品思维30讲》（LP系列30律）+《增长思维30讲》（LG系列31律）蒸馏为跨项目可复用框架：产品=同理心→机会→系统→体验→创新；增长=地图→机会→模式→组织→借势→征途。当需要做产品定义/用户洞察/用户体验设计/爆品打造/增长路径/组织诊断/战略杠杆设计时调用；也用于与其他项目技能（ecommerce-* / taoge-avatar / taoge-cognition-innovation-driver）组合迭代。
 ---
 
 # 产品增长驱动认知包（Product & Growth Driver）
@@ -38,6 +38,8 @@ description: 产品增长驱动认知包（slug=taoge-cognition-product-growth-d
 | 创新 | LP26 | 三级火箭律 | 免费抢用户→平台→变现；先亏后赚 |
 | 创新 | LP27 | 价值网颠覆律 | 企业=价值网节点，被绑架看不见颠覆 |
 
+---
+
 ## 三、增长思维核心律速查（LG系列）
 
 | 模块 | 编号 | 模型 | 一句话 |
@@ -70,6 +72,8 @@ description: 产品增长驱动认知包（slug=taoge-cognition-product-growth-d
 
 ## 四、产品增长五步诊断 SOP（跨项目复用）
 
+遇到"要不要做这个产品/怎么让它增长/组织能不能接住"类问题时按序走：
+
 1. **判机会（LP08+LG06）**：选的"体/面"对不对？机会池发散够不够？趋势往哪走？
 2. **定产品（LP10+LP23）**：痛点痒点爽点是什么？用户价值公式过筛（新体验-旧体验-替换成本>0）？
 3. **验系统（LP13+LP17）**：有没有系统能力交付确定性？关键任务是哪1-2个？毛利/生死线在哪？
@@ -84,11 +88,11 @@ description: 产品增长驱动认知包（slug=taoge-cognition-product-growth-d
 
 | 项目 | 应用 |
 |---|---|
-| 电商（ecommerce-* 系列） | 低糖云腿爆品（LG07/LG09/LP23）；SKU 100+→50+（LP14效率）；毛利生死线（LP17/LG01）；私域复购飞轮（LG12/LG13/LG27）；点线面体战略（LP08）；礼盒定价（LP23）；用户旅程改进（LP20峰终） |
-| 投资（何刚/自选股） | 标的=产品力评估（LP23/护城河LG09）；公司增长质量（LG26/LG12飞轮）；组织承接力（LG16/LG20） |
-| 教育（taoge-edu-private-advisory） | 给孩子选课=产品思维（LP03）；学习系统=增长飞轮（LG12）；生涯规划=认知地图（LG05/LG30底牌） |
+| 电商（ecommerce-* 系列） | 低糖云腿爆品（LG07/LG09/LP23）；SKU 100+→50+（LP14效率）；毛利生死线（LP17/LG01）；私域复购飞轮（LG12/LG13/LG27共同体）；点线面体战略（LP08健康面）；礼盒定价（LP23用户价值）；用户旅程改进（LP19/LP20峰终） |
+| 投资（何刚/自选股） | 标的=产品力评估（LP23价值/护城河LG09）；公司增长质量（LG26台阶/LG12飞轮）；组织承接力（LG16/LG20） |
+| 教育（taoge-edu-private-advisory） | 给孩子选课=产品思维（LP03兴趣=愉悦）；学习系统=增长飞轮（LG12）；生涯规划=认知地图（LG05/LG30底牌） |
 | 个人成长（taoge-avatar分身） | 产品透镜LP30+增长透镜LG31并入分身透镜表；决策框架增加"产品/增长"维度 |
-| 创新包（taoge-cognition-innovation-driver） | 产品定义（LP10 × H103）；增长承接（LG16 × H102）；爆品路径（LG09 × H101） |
+| 创新包（taoge-cognition-innovation-driver） | 产品定义（LP10痛痒爽 × H103任务思维）；增长承接（LG16 × H102组织能力）；爆品路径（LG09 × H101颠覆判据） |
 | 读书系统（taoge-distill-bottle） | 梁宁两门课蒸馏内容回挂：产品增长知识块 |
 
 ---
