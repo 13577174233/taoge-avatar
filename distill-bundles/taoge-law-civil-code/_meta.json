@@ -1,0 +1,112 @@
+{
+  "name": "taoge-law-civil-code",
+  "version": "1.0.0",
+  "domain": "law",
+  "source_course": "c11",
+  "source_title": "清华法学院解读民法典",
+  "created_at": "2026-10-28",
+  "node_ids": [
+    "kp.law.c11l000a1",
+    "kp.law.c11l000a2",
+    "kp.law.c11l000a3",
+    "kp.law.c11l000a4",
+    "kp.law.c11l000a5",
+    "kp.law.c11l000a6",
+    "kp.law.c11l000m",
+    "kp.law.c11l000mis1",
+    "kp.law.c11l000mis2",
+    "kp.law.c11l000mis3",
+    "kp.law.c11l001a1",
+    "kp.law.c11l001a2",
+    "kp.law.c11l001a3",
+    "kp.law.c11l001a4",
+    "kp.law.c11l001a5",
+    "kp.law.c11l001m",
+    "kp.law.c11l001mis1",
+    "kp.law.c11l001mis2",
+    "kp.law.c11l001mis3",
+    "kp.law.c11l002a1",
+    "kp.law.c11l002a2",
+    "kp.law.c11l002a3",
+    "kp.law.c11l002a4",
+    "kp.law.c11l002a5",
+    "kp.law.c11l002a6",
+    "kp.law.c11l002m",
+    "kp.law.c11l002mis1",
+    "kp.law.c11l002mis2",
+    "kp.law.c11l002mis3",
+    "kp.law.c11l003a1",
+    "kp.law.c11l003a2",
+    "kp.law.c11l003a3",
+    "kp.law.c11l003a4",
+    "kp.law.c11l003a5",
+    "kp.law.c11l003a6",
+    "kp.law.c11l003m",
+    "kp.law.c11l003mis1",
+    "kp.law.c11l003mis2",
+    "kp.law.c11l003mis3",
+    "kp.law.c11l004a1",
+    "kp.law.c11l004a2",
+    "kp.law.c11l004a3",
+    "kp.law.c11l004a4",
+    "kp.law.c11l004a5",
+    "kp.law.c11l004a6",
+    "kp.law.c11l004m",
+    "kp.law.c11l004mis1",
+    "kp.law.c11l004mis2",
+    "kp.law.c11l004mis3",
+    "kp.law.c11l005a1",
+    "kp.law.c11l005a2",
+    "kp.law.c11l005a3",
+    "kp.law.c11l005a4",
+    "kp.law.c11l005a5",
+    "kp.law.c11l005a6",
+    "kp.law.c11l005m",
+    "kp.law.c11l005mis1",
+    "kp.law.c11l005mis2",
+    "kp.law.c11l005mis3"
+  ],
+  "clusters": [
+    {
+      "file": "01-how-to-read",
+      "title": "民法典怎么读：结构与钥匙",
+      "lectures": [
+        "000",
+        "001"
+      ]
+    },
+    {
+      "file": "02-marriage",
+      "title": "婚姻家庭：离婚、财产与债务",
+      "lectures": [
+        "002"
+      ]
+    },
+    {
+      "file": "03-privacy",
+      "title": "隐私权与个人信息",
+      "lectures": [
+        "003"
+      ]
+    },
+    {
+      "file": "04-property",
+      "title": "物权：登记、居住权与抵押",
+      "lectures": [
+        "004"
+      ]
+    },
+    {
+      "file": "05-home-buying",
+      "title": "买房六关卡",
+      "lectures": [
+        "005"
+      ]
+    }
+  ],
+  "counts": {
+    "atomic": 35,
+    "model": 6,
+    "misconception": 18
+  }
+}
