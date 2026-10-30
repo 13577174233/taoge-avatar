@@ -1,0 +1,153 @@
+{
+  "name": "taoge-medicine-medication",
+  "version": "1.0.0",
+  "domain": "medicine",
+  "source_course": "c08",
+  "source_title": "王家伟·日常用药健康课",
+  "created_at": "2026-10-28",
+  "node_ids": [
+    "kp.medicine.c08l000a1",
+    "kp.medicine.c08l000a2",
+    "kp.medicine.c08l000a3",
+    "kp.medicine.c08l000a4",
+    "kp.medicine.c08l000m",
+    "kp.medicine.c08l000mis1",
+    "kp.medicine.c08l000mis2",
+    "kp.medicine.c08l001a1",
+    "kp.medicine.c08l001a2",
+    "kp.medicine.c08l001a3",
+    "kp.medicine.c08l001a4",
+    "kp.medicine.c08l001a5",
+    "kp.medicine.c08l001a6",
+    "kp.medicine.c08l001m",
+    "kp.medicine.c08l001mis1",
+    "kp.medicine.c08l001mis2",
+    "kp.medicine.c08l002a1",
+    "kp.medicine.c08l002a2",
+    "kp.medicine.c08l002a3",
+    "kp.medicine.c08l002a4",
+    "kp.medicine.c08l002a5",
+    "kp.medicine.c08l002a6",
+    "kp.medicine.c08l002m",
+    "kp.medicine.c08l002mis1",
+    "kp.medicine.c08l002mis2",
+    "kp.medicine.c08l003a1",
+    "kp.medicine.c08l003a2",
+    "kp.medicine.c08l003a3",
+    "kp.medicine.c08l003a4",
+    "kp.medicine.c08l003a5",
+    "kp.medicine.c08l003a6",
+    "kp.medicine.c08l003m",
+    "kp.medicine.c08l003mis1",
+    "kp.medicine.c08l003mis2",
+    "kp.medicine.c08l004a1",
+    "kp.medicine.c08l004a2",
+    "kp.medicine.c08l004a3",
+    "kp.medicine.c08l004a4",
+    "kp.medicine.c08l004a5",
+    "kp.medicine.c08l004a6",
+    "kp.medicine.c08l004m",
+    "kp.medicine.c08l004mis1",
+    "kp.medicine.c08l004mis2",
+    "kp.medicine.c08l004mis3",
+    "kp.medicine.c08l005a1",
+    "kp.medicine.c08l005a2",
+    "kp.medicine.c08l005a3",
+    "kp.medicine.c08l005a4",
+    "kp.medicine.c08l005a5",
+    "kp.medicine.c08l005a6",
+    "kp.medicine.c08l005m",
+    "kp.medicine.c08l005mis1",
+    "kp.medicine.c08l005mis2",
+    "kp.medicine.c08l006a1",
+    "kp.medicine.c08l006a2",
+    "kp.medicine.c08l006a3",
+    "kp.medicine.c08l006a4",
+    "kp.medicine.c08l006a5",
+    "kp.medicine.c08l006a6",
+    "kp.medicine.c08l006m",
+    "kp.medicine.c08l006mis1",
+    "kp.medicine.c08l006mis2",
+    "kp.medicine.c08l007a1",
+    "kp.medicine.c08l007a2",
+    "kp.medicine.c08l007a3",
+    "kp.medicine.c08l007a4",
+    "kp.medicine.c08l007a5",
+    "kp.medicine.c08l007a6",
+    "kp.medicine.c08l007m",
+    "kp.medicine.c08l007mis1",
+    "kp.medicine.c08l007mis2",
+    "kp.medicine.c08l008a1",
+    "kp.medicine.c08l008a2",
+    "kp.medicine.c08l008a3",
+    "kp.medicine.c08l008a4",
+    "kp.medicine.c08l008a5",
+    "kp.medicine.c08l008a6",
+    "kp.medicine.c08l008m",
+    "kp.medicine.c08l008mis1",
+    "kp.medicine.c08l008mis2",
+    "kp.medicine.c08l009a1",
+    "kp.medicine.c08l009a2",
+    "kp.medicine.c08l009a3",
+    "kp.medicine.c08l009a4",
+    "kp.medicine.c08l009a5",
+    "kp.medicine.c08l009a6",
+    "kp.medicine.c08l009m",
+    "kp.medicine.c08l009mis1",
+    "kp.medicine.c08l009mis2",
+    "kp.medicine.c08l009mis3"
+  ],
+  "clusters": [
+    {
+      "file": "01-medication-literacy",
+      "title": "用药素养与风险观",
+      "lectures": [
+        "000",
+        "001"
+      ]
+    },
+    {
+      "file": "02-symptom-attribution",
+      "title": "症状归因：先怀疑药，再谈治病",
+      "lectures": [
+        "002",
+        "003"
+      ]
+    },
+    {
+      "file": "03-strength-and-appearance",
+      "title": "强壮与形象：补剂、皮肤、体重",
+      "lectures": [
+        "004",
+        "006"
+      ]
+    },
+    {
+      "file": "04-mood-and-sex",
+      "title": "情绪与性健康",
+      "lectures": [
+        "005",
+        "007"
+      ]
+    },
+    {
+      "file": "05-peak-performance",
+      "title": "关键时刻的爆发力",
+      "lectures": [
+        "008"
+      ]
+    },
+    {
+      "file": "06-long-term-aging",
+      "title": "长期用药与老年",
+      "lectures": [
+        "009"
+      ]
+    }
+  ],
+  "counts": {
+    "atomic": 58,
+    "model": 10,
+    "misconception": 22
+  }
+}
