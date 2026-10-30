@@ -1,0 +1,205 @@
+{
+  "name": "taoge-medicine-hyperlipidemia",
+  "version": "1.0.0",
+  "domain": "medicine",
+  "source_course": "c05",
+  "source_title": "冯雪·高血脂医学课",
+  "created_at": "2026-10-28",
+  "node_ids": [
+    "kp.medicine.c05l000a1",
+    "kp.medicine.c05l000a2",
+    "kp.medicine.c05l000a3",
+    "kp.medicine.c05l000a4",
+    "kp.medicine.c05l000a5",
+    "kp.medicine.c05l000m",
+    "kp.medicine.c05l000mis1",
+    "kp.medicine.c05l000mis2",
+    "kp.medicine.c05l000mis3",
+    "kp.medicine.c05l001a1",
+    "kp.medicine.c05l001a2",
+    "kp.medicine.c05l001a3",
+    "kp.medicine.c05l001a4",
+    "kp.medicine.c05l001a5",
+    "kp.medicine.c05l001m",
+    "kp.medicine.c05l001mis1",
+    "kp.medicine.c05l001mis2",
+    "kp.medicine.c05l001mis3",
+    "kp.medicine.c05l002a1",
+    "kp.medicine.c05l002a2",
+    "kp.medicine.c05l002a3",
+    "kp.medicine.c05l002a4",
+    "kp.medicine.c05l002a5",
+    "kp.medicine.c05l002a6",
+    "kp.medicine.c05l002m",
+    "kp.medicine.c05l002mis1",
+    "kp.medicine.c05l002mis2",
+    "kp.medicine.c05l002mis3",
+    "kp.medicine.c05l003a1",
+    "kp.medicine.c05l003a2",
+    "kp.medicine.c05l003a3",
+    "kp.medicine.c05l003a4",
+    "kp.medicine.c05l003a5",
+    "kp.medicine.c05l003m",
+    "kp.medicine.c05l003mis1",
+    "kp.medicine.c05l003mis2",
+    "kp.medicine.c05l003mis3",
+    "kp.medicine.c05l004a1",
+    "kp.medicine.c05l004a2",
+    "kp.medicine.c05l004a3",
+    "kp.medicine.c05l004a4",
+    "kp.medicine.c05l004a5",
+    "kp.medicine.c05l004a6",
+    "kp.medicine.c05l004m",
+    "kp.medicine.c05l004mis1",
+    "kp.medicine.c05l004mis2",
+    "kp.medicine.c05l004mis3",
+    "kp.medicine.c05l005a1",
+    "kp.medicine.c05l005a2",
+    "kp.medicine.c05l005a3",
+    "kp.medicine.c05l005a4",
+    "kp.medicine.c05l005a5",
+    "kp.medicine.c05l005a6",
+    "kp.medicine.c05l005m",
+    "kp.medicine.c05l005mis1",
+    "kp.medicine.c05l005mis2",
+    "kp.medicine.c05l005mis3",
+    "kp.medicine.c05l006a1",
+    "kp.medicine.c05l006a2",
+    "kp.medicine.c05l006a3",
+    "kp.medicine.c05l006a4",
+    "kp.medicine.c05l006a5",
+    "kp.medicine.c05l006a6",
+    "kp.medicine.c05l006m",
+    "kp.medicine.c05l006mis1",
+    "kp.medicine.c05l006mis2",
+    "kp.medicine.c05l006mis3",
+    "kp.medicine.c05l007a1",
+    "kp.medicine.c05l007a2",
+    "kp.medicine.c05l007a3",
+    "kp.medicine.c05l007a4",
+    "kp.medicine.c05l007a5",
+    "kp.medicine.c05l007a6",
+    "kp.medicine.c05l007m",
+    "kp.medicine.c05l007mis1",
+    "kp.medicine.c05l007mis2",
+    "kp.medicine.c05l007mis3",
+    "kp.medicine.c05l008a1",
+    "kp.medicine.c05l008a2",
+    "kp.medicine.c05l008a3",
+    "kp.medicine.c05l008a4",
+    "kp.medicine.c05l008a5",
+    "kp.medicine.c05l008a6",
+    "kp.medicine.c05l008m",
+    "kp.medicine.c05l008mis1",
+    "kp.medicine.c05l008mis2",
+    "kp.medicine.c05l008mis3",
+    "kp.medicine.c05l009a1",
+    "kp.medicine.c05l009a2",
+    "kp.medicine.c05l009a3",
+    "kp.medicine.c05l009a4",
+    "kp.medicine.c05l009a5",
+    "kp.medicine.c05l009a6",
+    "kp.medicine.c05l009m",
+    "kp.medicine.c05l009mis1",
+    "kp.medicine.c05l009mis2",
+    "kp.medicine.c05l009mis3",
+    "kp.medicine.c05l010a1",
+    "kp.medicine.c05l010a2",
+    "kp.medicine.c05l010a3",
+    "kp.medicine.c05l010a4",
+    "kp.medicine.c05l010a5",
+    "kp.medicine.c05l010a6",
+    "kp.medicine.c05l010m",
+    "kp.medicine.c05l010mis1",
+    "kp.medicine.c05l010mis2",
+    "kp.medicine.c05l010mis3",
+    "kp.medicine.c05l011a1",
+    "kp.medicine.c05l011a2",
+    "kp.medicine.c05l011a3",
+    "kp.medicine.c05l011a4",
+    "kp.medicine.c05l011a5",
+    "kp.medicine.c05l011a6",
+    "kp.medicine.c05l011m",
+    "kp.medicine.c05l011mis1",
+    "kp.medicine.c05l011mis2",
+    "kp.medicine.c05l011mis3",
+    "kp.medicine.c05l012a1",
+    "kp.medicine.c05l012a2",
+    "kp.medicine.c05l012a3",
+    "kp.medicine.c05l012a4",
+    "kp.medicine.c05l012a5",
+    "kp.medicine.c05l012a6",
+    "kp.medicine.c05l012m",
+    "kp.medicine.c05l012mis1",
+    "kp.medicine.c05l012mis2",
+    "kp.medicine.c05l012mis3"
+  ],
+  "clusters": [
+    {
+      "file": "01-lipid-basics",
+      "title": "脂质是什么、怎么代谢",
+      "lectures": [
+        "001",
+        "002"
+      ]
+    },
+    {
+      "file": "02-diagnosis",
+      "title": "为什么血脂这么难诊断",
+      "lectures": [
+        "003",
+        "004"
+      ]
+    },
+    {
+      "file": "03-risk",
+      "title": "从高血脂到心梗有多远",
+      "lectures": [
+        "005"
+      ]
+    },
+    {
+      "file": "04-strategy",
+      "title": "总体治疗思路与目标值",
+      "lectures": [
+        "006"
+      ]
+    },
+    {
+      "file": "05-diet",
+      "title": "生活方式处方：怎么吃",
+      "lectures": [
+        "007"
+      ]
+    },
+    {
+      "file": "06-supplements",
+      "title": "保健品与非药物治疗",
+      "lectures": [
+        "008"
+      ]
+    },
+    {
+      "file": "07-statin",
+      "title": "药物治疗与他汀",
+      "lectures": [
+        "009",
+        "010"
+      ]
+    },
+    {
+      "file": "08-four-highs",
+      "title": "四高共病",
+      "lectures": [
+        "000",
+        "011",
+        "012"
+      ]
+    }
+  ],
+  "counts": {
+    "atomic": 75,
+    "model": 13,
+    "misconception": 39
+  }
+}
