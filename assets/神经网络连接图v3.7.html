@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>饕哥认知操作系统 · 神经网络连接图 v3.7（全景银河版·四十五透镜）</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:#070b16;color:#e8ecf4;overflow-x:auto;
+  }
+  .wrap{max-width:1720px;margin:0 auto;padding:18px 22px 40px;}
+  header{text-align:center;margin-bottom:6px;}
+  header h1{
+    font-size:26px;font-weight:800;letter-spacing:1px;
+    background:linear-gradient(135deg,#ffc83d 0%,#ff7a00 45%,#00e5ff 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  header h1 b{background:linear-gradient(135deg,#00e5ff,#9d4dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  header .sub{font-size:12.5px;color:#8fa2c8;margin-top:4px;line-height:1.7;}
+  header .sub b{color:#ffc83d;}
+  .stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px 0 10px;}
+  .stat{
+    background:linear-gradient(180deg,rgba(20,28,52,.85),rgba(10,16,32,.85));
+    border:1px solid #24345c;border-radius:10px;padding:8px 16px;text-align:center;min-width:92px;
+    box-shadow:0 4px 14px rgba(0,0,0,.35);
+  }
+  .stat .n{font-size:19px;font-weight:800;color:#ffc83d;line-height:1.1;}
+  .stat .l{font-size:10.5px;color:#8fa2c8;margin-top:2px;white-space:nowrap;}
+  svg{width:100%;height:auto;display:block;background:transparent;}
+  #map{position:relative;}
+  .legend{
+    display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px 0 4px;
+    font-size:11.5px;color:#b9c8e6;
+  }
+  .legend .it{display:flex;align-items:center;gap:6px;}
+  .legend .sw{width:11px;height:11px;border-radius:50%;box-shadow:0 0 6px currentColor;}
+  .legend .ln{width:18px;height:2px;border-radius:2px;}
+  .note{text-align:center;color:#6d7ea6;font-size:11px;margin-top:8px;line-height:1.8;}
+  #tooltip{
+    position:fixed;z-index:50;display:none;max-width:300px;
+    background:rgba(8,12,26,.94);border:1px solid #3b4f7a;border-radius:10px;
+    padding:9px 12px;font-size:12px;line-height:1.6;color:#dfe7f7;pointer-events:none;
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+  }
+  #tooltip .t{font-size:12.5px;font-weight:700;color:#ffc83d;margin-bottom:2px;}
+  #tooltip .s{color:#8fa2c8;font-size:11px;}
+  #status{
+    position:fixed;left:14px;bottom:14px;z-index:40;
+    background:rgba(10,16,32,.78);border:1px solid #2a3a5e;border-radius:10px;
+    padding:7px 12px;font-size:11.5px;color:#9fd0ff;
+  }
+  .lens{filter:url(#dropGlow);cursor:pointer;transition:filter .15s;}
+  .lens:hover{filter:url(#dropGlowBright);}
+  .lens.faded{opacity:.35;filter:none;}
+  .dc-node{cursor:pointer;}
+  .model{cursor:pointer;}
+  .fiber{filter:url(#dropGlowSoft);}
+  .tip-legend{font-size:10.5px;color:#5b6c94;margin-top:3px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>饕哥认知操作系统 · 神经网络连接图 <b>v3.7（全景银河版·四十五透镜）</b></h1>
+    <p class="sub">中心＝认知内核（第一性原理 × 决策框架：现象→本质→判断）｜<b>45 颗透镜引擎</b>（五引擎★）十五群环绕｜跨域突触 <b>52 条</b>发光接线｜四脑区接口。数据口径：2026-11-07 登记，全库约 <b>5575</b> 模型（豆包侧约4829 + WorkBuddy侧746；健康272／心理336／法律39／职场·人文99／信息41／青春期家长19／公司治理30）。</p>
+  </header>
+  <div class="stats">
+    <div class="stat"><div class="n">45</div><div class="l">透镜引擎</div></div>
+    <div class="stat"><div class="n">5575</div><div class="l">思维模型（约）</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">★引擎主线</div></div>
+    <div class="stat"><div class="n">52</div><div class="l">跨域突触</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">决策环节点</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">脑区接口</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">新增域(健康/心理/法律/教育/投资)</div></div>
+  </div>
+  <div id="map">
+    <svg id="g" viewBox="-200 -160 2100 2120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="46%" r="75%">
+          <stop offset="0%" stop-color="#0e162e"/><stop offset="55%" stop-color="#080d1d"/><stop offset="100%" stop-color="#05070f"/>
+        </radialGradient>
+        <radialGradient id="coreGrad">
+          <stop offset="0%" stop-color="#fff6dd"/><stop offset="35%" stop-color="#ffc83d"/><stop offset="100%" stop-color="#ff7a00"/>
+        </radialGradient>
+        <radialGradient id="coreHalo">
+          <stop offset="0%" stop-color="#ffc83d" stop-opacity=".5"/><stop offset="100%" stop-color="#ffc83d" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="dropGlow" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="dropGlowBright" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="dropGlowSoft" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="coreGlow" x="-120%" y="-120%" width="340%" height="340%">
+          <feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <linearGradient id="goldLine" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ffc83d" stop-opacity=".9"/><stop offset="100%" stop-color="#ff7a00" stop-opacity=".25"/>
+        </linearGradient>
+      </defs>
+      <rect x="-200" y="-160" width="2100" height="2120" fill="url(#bgGrad)"/>
+      <g id="stars"></g>
+      <g id="brainzones"></g>
+      <g id="rings"></g>
+      <g id="mainlines"></g>
+      <g id="synapses"></g>
+      <g id="corewrap"></g>
+      <g id="lenses"></g>
+      <g id="models"></g>
+    </svg>
+  </div>
+  <div class="legend">
+    <div class="it"><span class="sw" style="background:#ffc83d;color:#ffc83d"></span>认知内核/决策环</div>
+    <div class="it"><span class="sw" style="background:#00e5ff;color:#00e5ff"></span>宏观经济群 E·Z★·H★·F</div>
+    <div class="it"><span class="sw" style="background:#00ffa3;color:#00ffa3"></span>金融财务群 J·FN·XJ</div>
+    <div class="it"><span class="sw" style="background:#9d4dff;color:#9d4dff"></span>商业管理群 MG·LD·BI·SW·BR</div>
+    <div class="it"><span class="sw" style="background:#ff5e3a;color:#ff5e3a"></span>营销产品群 YX·LP★·LG★</div>
+    <div class="it"><span class="sw" style="background:#ff4d4d;color:#ff4d4d"></span>认知引擎 C★</div>
+    <div class="it"><span class="sw" style="background:#a78bfa;color:#a78bfa"></span>通用工具群 W·R</div>
+    <div class="it"><span class="sw" style="background:#2ee6a8;color:#2ee6a8"></span>健康域(身体感知) HF·HT·HU·HG·HL·HE·DM·MD·NT·ML</div>
+    <div class="it"><span class="sw" style="background:#ff8fb1;color:#ff8fb1"></span>心理域(情绪自我) WH·PP</div>
+    <div class="it"><span class="sw" style="background:#6c9eff;color:#6c9eff"></span>法律域(社会规则) LT·CC</div>
+    <div class="it"><span class="sw" style="background:#ffe066;color:#ffe066"></span>教育成长群 WJ·DX·CXJ·LXN</div>
+    <div class="it"><span class="sw" style="background:#b8c0ff;color:#b8c0ff"></span>历史关系群 SZ·XT</div>
+    <div class="it"><span class="sw" style="background:#ff8787;color:#ff8787"></span>投资深化群 YJF·TX·ZXY</div>
+    <div class="it"><span class="sw" style="background:#7fe1ff;color:#7fe1ff"></span>信息决策群 XL（含 HX★·GB★ 横向接线）</div>
+    <div class="it"><span class="sw" style="background:#a0e0ff;color:#a0e0ff"></span>组织治理群 LSB（治理×管理×公司金融）</div>
+    <div class="it"><span class="ln" style="background:linear-gradient(90deg,#ffc83d,#ff7a00)"></span>主线（中心→引擎，流光）</div>
+    <div class="it"><span class="ln" style="background:#00e5ff"></span>跨域突触（52 条发光接线）</div>
+  </div>
+  <div class="note">
+    实线主线＝中心到 42 透镜的能量脉冲（流光）；发光曲线＝45 条跨域神经突触（如 E01机会成本↔W84第一性原理、C60防守投资↔J108方差偏度肥尾、NT01低糖饮食心智↔XJ10参考点依赖、CC01民法典合同↔YX12渠道生死）。<br>
+    悬停任意节点弹出模型卡片；点击透镜展开其代表模型群（中观层），再次点击收起。脑区：前额叶·决策区 ｜ 颞叶·知识库区 ｜ 顶叶·实战接口区 ｜ 枕叶·感知输入区。v3.4 在 v3.3 的 32 透镜之上并入 11-01～11-03 八门课共 282 律：教育成长群（WJ60 吴军·教育的方法／DX16 大学选专业／CXJ43 青春期家庭教育，挂额叶·长期决策）、历史关系群（SZ45 中国史纲／XT35 关系攻略，挂颞叶·长周期记忆）、投资深化群（YJF23 行为经济学／TX38 公司金融／ZXY22 风险管理，挂顶叶·实战接口），并新增 8 条跨域突触。v3.0/v3.1/v3.2/v3.3 及全部 v2.x 版本保留。v3.7 在 v3.6 的 44 透镜之上并入刘松博·公司治理30讲 30 律（LSB001–LSB030，新设组织治理群，挂额叶·决策区），并新增 2 条跨域突触；v3.6 及以前版本保留。
+  </div>
+</div>
+<div id="tooltip"></div>
+<div id="status">状态：点击透镜展开模型群，再次点击收起</div>
+<script>
+(function(){
+/* ============ 数据（v3.7：45 透镜 + 决策环 + 四脑区 + 52 突触） ============ */
+var D = {
+  core:{name:"认知内核",sub:"第一性原理 × 决策框架",detail:"中心汇聚点：所有透镜的模型最终服务于「本质判断力」。决策链＝三实模型（H01：事实→现实→共识）→ 透镜选型 → 跨透镜接线（≥2 透镜互证）→ 饕哥关切三段（电商怎么做 / 投资怎么看 / IP 认知怎么用）。全库约 5575 模型（豆包侧约4829 + WorkBuddy侧746；健康272/心理336/法律39/职场·人文99/信息41/青春期家长19/公司治理30）。"},
+  decision:[
+    {id:"H01",name:"三实模型",detail:"决策框架第一步：先列事实（数据/证据）→ 再归现实（机制/因果）→ 后达共识（结论/行动）。一切报告与判断的默认骨架。"},
+    {id:"W84",name:"第一性原理",detail:"剥到最底层不可再分的事实与规律，再向上重构。悬置经验与类比，先问「它本质是什么」。"},
+    {id:"C13",name:"贝叶斯更新",detail:"结论＝先验 × 证据强度；新赔率＝旧赔率 × 似然比。新证据够强就弃昨日之你。"},
+    {id:"W24",name:"凯利公式",detail:"胜率 × 赔率定仓位，不押满。重仓建立在可重复的正期望上。"},
+    {id:"H50",name:"周期轮回",detail:"繁荣期备好下轮危机的钱；周期比人比制度重要，活下来就赢。"},
+    {id:"C82",name:"默认值律",detail:"凡事先找 base rate 默认值，承认自己不特殊，再做个性化修正。"}
+  ],
+  lens:[
+    {code:"E",name:"经济学透镜",count:1300,group:0,color:"#00e5ff",engine:false,source:"薛兆丰经济学课（393篇归档）",detail:"看什么：微观机制/价格/产权/行为。占全库约 28%，是最大的单透镜。",
+     models:[{id:"E01",name:"机会成本",d:"选A就放弃B；一切选择的真实代价是放弃的最好选项。"},{id:"E08",name:"价格信号",d:"价格是实时信号，传递供需与稀缺信息。"},{id:"E05",name:"规模经济",d:"产量越大单位成本越低，是自然垄断的来源。"},{id:"E51",name:"需求定律",d:"价升量减是经济学唯一成体系的定律。"}]},
+    {code:"Z",name:"政经引擎",count:89,group:0,color:"#ffc83d",engine:true,source:"马江博政经参考（208讲全归档）",detail:"看什么：当下政策/制度/宏观方向。五引擎之政经引擎——解决「现在什么在发生」。",
+     models:[{id:"Z66",name:"预期管理",d:"政策靠引导预期起作用，预期先于事实。"},{id:"Z71",name:"信用锚转换",d:"信用锚从美元转向什么，决定资产定价坐标系。"},{id:"Z76",name:"科技牛改革牛",d:"牛市成色看改革与科技的实质兑现。"},{id:"Z89",name:"智能时代",d:"算力选址/资源诅咒解药——智能时代的地缘经济。"}]},
+    {code:"H",name:"财经大课透镜",count:202,group:0,color:"#ff7a00",engine:true,source:"何刚财经大课（336/336讲收官）",detail:"看什么：大历史/周期/泡沫/价值投资/制度变迁/转轨经济。五引擎之创新引擎：H97-H112 创新链16律。投资四层主线＝周期 H50 / 泡沫 H133 / 价值 H113 / 纪律 H120。",
+     models:[{id:"H50",name:"经济周期轮回",d:"繁荣期备好下轮危机的钱。"},{id:"H133",name:"泡沫自强化",d:"泡沫=自强化循环+信息瀑布，郁金香三阶段识别。"},{id:"H113",name:"资本回报率检验",d:"长期回报率回归资本回报率 ROIC。"},{id:"H120",name:"右侧入场",d:"趋势确认再入场，纪律比判断可靠。"}]},
+    {code:"F",name:"财富自由透镜",count:900,group:0,color:"#39ff14",engine:false,source:"李笑来财富自由之路（246篇归档）",detail:"看什么：个人行动/成长/投资认知。代表：定投/不懂不买/刚需原则/个人商业模式。",
+     models:[{id:"F704",name:"周期·趋势",d:"读懂周期与趋势，看清自己处于哪一段。"},{id:"F745",name:"时间买卖",d:"个人商业模式=出售时间的方式，卖一次还是卖很多次。"},{id:"F900",name:"执行力",d:"认知到行动的距离才是真差距。"},{id:"F238",name:"避险·机会",d:"先避险再求机会，风险意识是入门第一课。"}]},
+    {code:"J",name:"金融透镜",count:266,group:1,color:"#7df9ff",engine:false,source:"香帅北大金融学课（266篇全归档）",detail:"看什么：金融本质/机构/工具/决策/监管/科技。金融三要素＝时间×风险×杠杆。",
+     models:[{id:"J03",name:"时间价值",d:"远期承诺必折现；金融=时光机。"},{id:"J108",name:"方差偏度肥尾",d:"风险不只看方差，肥尾事件比正态更常见。"},{id:"J218",name:"信用崩塌",d:"危机本质=信用崩塌，负债杠杆反转引爆。"},{id:"J220",name:"明斯基时刻",d:"稳定本身孕育不稳定，杠杆狂欢是危机伏笔。"}]},
+    {code:"FN",name:"财务透镜",count:66,group:1,color:"#00ffa3",engine:false,source:"贾宁财务思维课41篇＋财务分析课25律（JN并入）",detail:"看什么：算账/资产/利润/现金流/造假识别/融资/投资分配＋战略→结构→比率、利润四源、现金八格、UE三关、无表尽调。财报=体检表≠公司本身。",
+     models:[{id:"FN02",name:"三表体检",d:"资产负债/利润/现金三表互证，先剔非经常性损益。"},{id:"FN05",name:"负债两分",d:"无息占款是模式，有息负债才是风险。"},{id:"FN07",name:"机会成本",d:"选A就放弃B；ROIC 低于资金成本=价值毁灭。"},{id:"FN09",name:"现金生死",d:"利润决定发展，现金决定生死。"},{id:"FN21",name:"杜邦三齿轮",d:"ROE=利润率×周转率×杠杆，先想清靠哪个齿轮赚钱。"}]},
+    {code:"XJ",name:"行为金融透镜",count:38,group:1,color:"#ff3b9e",engine:false,source:"陆蓉行为金融学（38篇全）",detail:"看什么：人怎么在市场系统性犯错/偏差/交易错误/行为策略。自己少犯错+赚别人犯错的钱。",
+     models:[{id:"XJ07",name:"代表性偏差",d:"「看起来像」必须乘基数，警惕幸存者游戏。"},{id:"XJ10",name:"参考点依赖",d:"卖出只看预期不看成本价；成本价只记账不决策。"},{id:"XJ22",name:"大盘可预测",d:"P/E 碰顶=系统性风险信号（预测窗10年）。"},{id:"XJ19",name:"售盈持亏",d:"处置效应504天验证：卖盈持亏从短期到长期都卖错。"}]},
+    {code:"MG",name:"管理透镜",count:43,group:2,color:"#9d4dff",engine:false,source:"宁向东管理学课（248篇S级归档）",detail:"看什么：破局/人性行为/团队/组织设计/客户竞争/业绩激励/控制变革。管理=破局的智慧。",
+     models:[{id:"MG27",name:"情境领导",d:"领导方式匹配下属成熟度，成熟度决定授权度。"},{id:"MG47",name:"塔克曼五阶段",d:"形成→震荡→规范→执行，先诊断阶段再定打法。"},{id:"MG82",name:"组织设计",d:"结构跟随战略，组织是承接机会的能力。"},{id:"MG248",name:"科特八步",d:"变革八步：紧迫感→愿景→沟通→授权→短胜→巩固→植入。"}]},
+    {code:"LD",name:"领导力透镜",count:35,group:2,color:"#b967ff",engine:false,source:"刘澜领导力30讲（36篇全）",detail:"看什么：动员群众解决难题/十句口诀/领导vs管理/追随力/反思。领导力=责任不是职位。",
+     models:[{id:"LD06",name:"我来口诀",d:"难题面前先说「我来」，对上级「让我来」对下级「跟我来」。"},{id:"LD12",name:"你觉得呢",d:"开会至少一半时间先听下属，提问四标准。"},{id:"LD23",name:"反思本质",d:"反思=对思之再思，改行动改目标改心智。"},{id:"LD22",name:"失败七分类",d:"失败先分类（坏/正常/好）再谈怎么改。"}]},
+    {code:"BI",name:"商业洞察透镜",count:39,group:2,color:"#ff5e3a",engine:false,source:"刘润商业洞察力30讲（35篇全）",detail:"看什么：系统连接关系/五结构模块/五把刀/九基模。洞察=看透系统要素间的连接关系。",
+     models:[{id:"BI06",name:"增强回路",d:"每家伟大企业都有飞轮，找第一推动力。"},{id:"BI15",name:"找到根本解",d:"症状解/原因解/根本解三级，别用症状解打压根本解。"},{id:"BI23",name:"舍本逐末",d:"直播低价=饮鸩止渴预警，用降目标代替改行为=慢性死亡。"},{id:"BI24",name:"富者愈富",d:"已被头部通吃就不恋战，转投新战场建立正反馈。"}]},
+    {code:"SW",name:"商业实战透镜",count:76,group:2,color:"#ffc300",engine:false,source:"5分钟商学院·实战（342讲全量，340篇S级归档）",detail:"看什么：用户心理/渠道触点/营销传播/产品需求/定价歧视/商业模式/团队治理/复盘道场。商业=用兵器库解260个真实「怎么办」。",
+     models:[{id:"SW02",name:"心理账户",d:"用户给钱贴标签，营销先改账户。"},{id:"SW21",name:"有效流量",d:"流量看转化率；拉新成本3-10倍于留客。"},{id:"SW116",name:"三级价格歧视",d:"按人按量按类定价，礼盒做会员阶梯价。"},{id:"SW196",name:"激励系数",d:"提成按毛利算，奖金分配如狼似虎。"}]},
+    {code:"BR",name:"品牌营销透镜",count:28,group:2,color:"#ff6ec7",engine:false,source:"跟华杉学品牌营销30讲（33讲全）",detail:"看什么：超级符号/品牌三原理/传播三原理/营销4P/消费者四角色。品牌=寄生于文化母体的超级符号。",
+     models:[{id:"BR04",name:"超级符号",d:"符号=指称+能量+指令，寄生母体重复50年成民俗。"},{id:"BR07",name:"营销日历",d:"固定时间做固定事，把「饕」字做成固定符号。"},{id:"BR12",name:"成本原理",d:"品牌降监督/选择/传播三类成本。"},{id:"BR15",name:"刺激反射",d:"叫座在先叫好在后，传达率>到达率。"}]},
+    {code:"YX",name:"营销实战透镜",count:23,group:3,color:"#4dffff",engine:false,source:"小马宋营销实战22讲（23篇全量）",detail:"看什么：4P/产品定价渠道推广/渠道生死/推广转化/购买逻辑。营销的全部就是4P，互相咬合。",
+     models:[{id:"YX05",name:"待办任务",d:"顾客买的不是产品是任务，画像调研≠真实需求。"},{id:"YX09",name:"定价杠杆",d:"低毛利企业提价，利润弹性大于销量翻倍。"},{id:"YX12",name:"渠道生死",d:"产品过剩时代没有渠道几乎没有成交。"},{id:"YX22",name:"POM模型",d:"推广资源投向 Personal/Others/Marketing 主导的那一类。"}]},
+    {code:"LP",name:"产品引擎",count:30,group:3,color:"#00ff87",engine:true,source:"梁宁产品思维30讲（全归档）",detail:"看什么：同理心/机会判断/系统能力/用户体验/创新。五引擎之产品引擎——怎么做出用户要的东西。",
+     models:[{id:"LP08",name:"点线面体",d:"战略=选体（时代）>用功于点，选择大于努力。"},{id:"LP10",name:"痛痒爽三感",d:"痛=恐惧/痒=虚拟自我/爽=即时满足。"},{id:"LP23",name:"用户价值公式",d:"用户价值=(新体验-旧体验)-替换成本。"},{id:"LP20",name:"峰终定律",d:"记忆=峰值+终值，设计峰终不必全程完美。"}]},
+    {code:"LG",name:"增长引擎",count:31,group:3,color:"#ffaa00",engine:true,source:"梁宁增长思维30讲（全归档）",detail:"看什么：地图/机会/模式/组织/借势/征途。五引擎之增长引擎——怎么让业务持续增长。",
+     models:[{id:"LG07",name:"破局点",d:"从0到1=单点击穿，最小投入最大杠杆。"},{id:"LG12",name:"双回路设计",d:"模式=增强回路（飞轮）×调节回路（平衡）。"},{id:"LG21",name:"支点杠杆",d:"战略=支点（不变）×杠杆（借力放大）。"},{id:"LG30",name:"增长底牌",d:"底牌=不变的东西，认清底牌=判断的锚。"}]},
+    {code:"C",name:"认知训练引擎",count:90,group:4,color:"#ff4d4d",engine:true,source:"王烁30天认知训练营三季（93篇归档）",detail:"看什么：认知防身/博弈/风险/权谋/自我管理/统计决策/社会动力学。五引擎之认知训练引擎——我怎么想才不被骗、不被坑、不被自己蠢死。",
+     models:[{id:"C13",name:"贝叶斯更新",d:"新赔率=旧赔率×似然比，证据够强就调。"},{id:"C60",name:"防守投资",d:"投资是防守不是进攻，六忌自查，黄金=保险。"},{id:"C77",name:"正和先判",d:"不对等博弈先判正和还是零和，再找筹码。"},{id:"C84",name:"赔率更新",d:"新证据够强就弃昨日之你。"}]},
+    {code:"W",name:"通用工具透镜",count:44,group:5,color:"#c0c0ff",engine:false,source:"万维钢思维工具100讲（44篇归档）",detail:"看什么：思维工具/第一性原理/硬约束/重尾分布/凯利公式。",
+     models:[{id:"W04",name:"硬约束",d:"先算绕不开的资源/时间/规律边界。"},{id:"W24",name:"凯利公式",d:"胜率×赔率定仓位不押满。"},{id:"W84",name:"第一性原理",d:"剥到最底层重构，不靠类比。"},{id:"W02",name:"重尾分布",d:"极端值比平均值重要，肥尾世界别求平均。"}]},
+    {code:"R",name:"阅读写作透镜",count:27,group:5,color:"#a78bfa",engine:false,source:"吴军阅读写作50讲（27篇归档）",detail:"看什么：表达/结构/说服。阅读=借视觉语言旧回路的逆天改装。",
+     models:[{id:"R06",name:"叙事三结构",d:"先抛结论，证据成链，结尾收束。"},{id:"R08",name:"报告二分法",d:"报告=结论先行+证据支撑，不堆砌。"},{id:"R11",name:"表达克制",d:"把「好」翻译成可感知的细节，不喊口号。"}]},
+    /* ===== v3.3 新增：健康域（身体感知区，挂枕叶/顶叶） ===== */
+    {code:"HF",name:"家庭健康管理",count:105,group:6,color:"#2ee6a8",engine:false,source:"冯雪家庭健康管理课（105模型）",detail:"健康域·身体感知总入口：家庭健康档案/年度体检复盘/睡眠节律/慢病共管。挂枕叶·感知输入与顶叶·实战接口。",
+     models:[{id:"HF01",name:"家庭健康档案",d:"全家健康数据一档归档，体检报告可追溯对比。"},{id:"HF20",name:"睡眠节律",d:"睡眠是健康第一修复力，固定作息优先于补觉。"},{id:"HF50",name:"年度体检复盘",d:"体检报告不是结论是起点，异常项追因随访。"}]},
+    {code:"HT",name:"高血压管理",count:15,group:6,color:"#26d9b8",engine:false,source:"高血压专科模型（15）",detail:"盐敏感/家庭血压监测/用药依从/靶器官保护。",
+     models:[{id:"HT01",name:"盐敏感",d:"限盐是降压一线干预，家庭用盐量化。"},{id:"HT08",name:"家庭血压监测",d:"早晚定测记表，白大衣高血压在家识别。"}]},
+    {code:"HU",name:"高尿酸管理",count:13,group:6,color:"#1fd0c4",engine:false,source:"高尿酸血症模型（13）",detail:"嘌呤代谢/低糖低脂饮食/痛风急性期与间歇期。",
+     models:[{id:"HU01",name:"嘌呤代谢",d:"内源性嘌呤占八成，控饮食只是一半。"},{id:"HU06",name:"低糖饮食",d:"果甜饮料升尿酸，低糖即护关节——健康即防守。"}]},
+    {code:"HG",name:"高血糖管理",count:14,group:6,color:"#38e0a0",engine:false,source:"高血糖模型（14）",detail:"胰岛素抵抗/餐后血糖/碳水排序。",
+     models:[{id:"HG01",name:"胰岛素抵抗",d:"先抗糖再谈降糖，腰围比体重更预警。"},{id:"HG09",name:"餐后血糖",d:"餐后2h血糖比空腹更能反映代谢。"}]},
+    {code:"HL",name:"高血脂管理",count:13,group:6,color:"#2bd98f",engine:false,source:"高脂血症模型（13）",detail:"LDL-C目标/地中海饮食/他汀依从。",
+     models:[{id:"HL01",name:"LDL-C目标",d:"风险分层定目标值，不看化验单箭头。"},{id:"HL07",name:"地中海饮食",d:"橄榄油/深海鱼/蔬果坚果，护血管一线。"}]},
+    {code:"HE",name:"心脏健康",count:16,group:6,color:"#20c997",engine:false,source:"心血管模型（16）",detail:"血脂血压共管/运动心肺/胸痛鉴别。",
+     models:[{id:"HE01",name:"三高共管",d:"血压血糖血脂联动，单控一项不够。"},{id:"HE11",name:"运动心肺",d:"有氧+抗阻，心率区间量化运动强度。"}]},
+    {code:"DM",name:"糖尿病管理",count:13,group:6,color:"#3fe0b0",engine:false,source:"糖尿病模型（13）",detail:"五驾马车/低碳饮食/血糖监测。",
+     models:[{id:"DM01",name:"五驾马车",d:"教育/饮食/运动/药物/监测并驾齐驱。"},{id:"DM08",name:"低碳饮食",d:"碳水循环与代餐，稳糖优先于减重。"}]},
+    {code:"MD",name:"合理用药",count:10,group:6,color:"#18c9a0",engine:false,source:"用药安全模型（10）",detail:"依从性/药物相互作用/通用名核对。",
+     models:[{id:"MD01",name:"用药依从性",d:"漏服不补双倍，长期慢病靠规律。"},{id:"MD05",name:"相互作用",d:"多药同服查相互作用，通用名核对防重复。"}]},
+    {code:"NT",name:"营养学",count:21,group:6,color:"#45e6b8",engine:false,source:"营养学模型（21）",detail:"低糖消费心智/地中海饮食/微量营养。",
+     models:[{id:"NT01",name:"低糖消费心智",d:"减糖=重新定义货架选择，健康心智改写消费决策。"},{id:"NT09",name:"地中海饮食",d:"好油全谷深海鱼，护心脑的膳食模板。"},{id:"NT15",name:"微量营养",d:"维生素/矿物质缺口比热量更易被忽视。"}]},
+    {code:"ML",name:"医学通识",count:52,group:6,color:"#2ec4a0",engine:false,source:"薄世宁医学通识（52模型）",detail:"循证医学/概率医学/健康底层认知。",
+     models:[{id:"ML01",name:"循证医学",d:"决策靠证据等级，不靠个案与传闻。"},{id:"ML20",name:"概率医学",d:"诊断是概率排序，治疗是期望值优化。"}]},
+    /* ===== v3.3 新增：心理域（情绪/自我区，挂顶叶/额叶） ===== */
+    {code:"WH",name:"武志红心理学",count:304,group:7,color:"#ff8fb1",engine:false,source:"武志红心理学课（304模型）",detail:"心理域·情绪与自我：内在关系模式/巨婴/攻击性/共情。挂顶叶与额叶。",
+     models:[{id:"WH01",name:"内在关系模式",d:"童年关系内化成年模式，看见即改变起点。"},{id:"WH15",name:"巨婴心理",d:"成年身体婴儿心理，全能自恋易崩塌。"},{id:"WH30",name:"攻击性表达",d:"攻击性被合理化即生命力，压抑转自毁。"},{id:"WH88",name:"共情",d:"接住情绪再谈解决，关系先于道理。"}]},
+    {code:"PP",name:"积极心理学",count:32,group:7,color:"#ff7eb0",engine:false,source:"积极心理学模型（32）",detail:"心流/感恩练习/习得性乐观。",
+     models:[{id:"PP01",name:"心流",d:"挑战与技能匹配时进入忘我最优体验。"},{id:"PP10",name:"感恩练习",d:"每日三件好事，重塑注意偏向。"},{id:"PP20",name:"习得性乐观",d:"解释风格可训练，乐观是可学的技能。"}]},
+    /* ===== v3.3 新增：法律域（社会规则区，挂额叶） ===== */
+    {code:"LT",name:"法律思维",count:33,group:8,color:"#6c9eff",engine:false,source:"法律思维模型（33）",detail:"法律域·社会规则：要件思维/证据意识/合同风险。挂额叶。",
+     models:[{id:"LT01",name:"要件思维",d:"法律请求权先拆要件，逐要件找事实。"},{id:"LT12",name:"证据意识",d:"凡事先留痕，口头承诺不如纸面证据。"},{id:"LT25",name:"合同风险",d:"违约/争议/管辖条款前置审查，渠道合同是重灾区。"}]},
+    {code:"CC",name:"民法典",count:6,group:8,color:"#5b8cff",engine:false,source:"民法典核心模型（6）",detail:"合同编/侵权责任/代理与担保。",
+     models:[{id:"CC01",name:"合同编",d:"要约承诺/效力/违约解除，电商经销合同的母法。"},{id:"CC03",name:"侵权责任",d:"过错与无过错责任，产品责任倒置。"}]},
+    /* ===== v3.4 新增：教育成长群（青少年长期决策，挂额叶FF） ===== */
+    {code:"WJ",name:"教育方法透镜",count:60,group:9,color:"#ffe066",engine:false,source:"吴军·教育的方法（60篇S级归档）",detail:"教育成长群：普娃定位/四力模型/目的三层/广度优先/因材施教/读研算账。教育是长期投资，先把目的想清再谈分数。",
+     models:[{id:"WJ03",name:"普娃定位",d:"95%是普娃，认清现实后靠少犯错、不内卷、发现独特优势赢。"},{id:"WJ04",name:"四力模型",d:"专业能力/社会能力/解决问题能力/独立生活能力才是社会标尺。"},{id:"WJ05",name:"目的三层",d:"明辨是非、掌握谋生、扩展机会；上大学只是手段不是目的。"},{id:"WJ06",name:"广度优先",d:"AI时代广度大于深度，读写能力是判断AI输出的基础。"}]},
+    {code:"DX",name:"选专业透镜",count:16,group:9,color:"#ffd43b",engine:false,source:"大学选专业·什么值得学（16篇S级归档）",detail:"教育成长群：热爱先验/专业底层密码/14专业全景/填志愿五招。选专业看底层逻辑不看当下热度。",
+     models:[{id:"DX01",name:"热爱先验",d:"热爱才不后悔；热门会变冷门，专业价值在底层密码不在表层热度。"},{id:"DX03",name:"问题意识",d:"历史不是背史料，AI替不了不可数学化的想象力。"},{id:"DX05",name:"宽口径",d:"天文给大理工方法训练，适合想大问题的人。"},{id:"DX06",name:"结构洞",d:"社会学给结构洞三视角，把位置优势变成信息与创新。"}]},
+    {code:"CXJ",name:"青春期家庭透镜",count:43,group:9,color:"#fcc419",engine:false,source:"陈行甲·青春期家庭教育40讲（43项全量）",detail:"教育成长群：根干枝叶四层/做园丁不做消防员/夫妻定海神针/教练式引导。问题出在孩子身上，病根长在家庭土壤里。",
+     models:[{id:"CXJ001",name:"根翼父母",d:"给孩子根与翅膀；父母先活出力量，孩子心里才有光。"},{id:"CXJ003",name:"根干枝叶",d:"叶是表面问题、枝是能力、干是亲子关系、根是家庭土壤。"},{id:"CXJ004",name:"油门刹车",d:"边缘系统油门踩到底、前额叶刹车25岁才完工，风暴是成长本身。"},{id:"CXJ006",name:"蓝图四柱",d:"情感连接/清晰边界/成长思维/流动的爱，健康家庭四根支柱。"}]},
+    /* ===== v3.4 新增：历史关系群（长周期记忆与人情，挂颞叶TL） ===== */
+    {code:"SZ",name:"中国史透镜",count:45,group:10,color:"#b8c0ff",engine:false,source:"施展·中国史纲时间篇（89讲全量）",detail:"历史关系群：欲望秩序/体系互构/技术破壁/官僚皇帝/规模均衡。用长周期看清制度与均衡的来处。",
+     models:[{id:"SZ01",name:"欲望秩序",d:"历史是各行为主体欲望与资源约束的博弈均衡，技术与气候打破均衡。"},{id:"SZ02",name:"体系互构",d:"中原+草原+西域+高原+海洋互构，脱开任一方都解释不了另一方。"},{id:"SZ06",name:"官僚皇帝",d:"官僚制管日常效率，皇帝决断管危机与目标，两层互补缺一不可。"},{id:"SZ07",name:"规模均衡",d:"规模收益与管理成本的均衡点决定最佳规模，地理税基决定均衡点。"}]},
+    {code:"XT",name:"关系透镜",count:35,group:10,color:"#9aa5ff",engine:false,source:"熊太行·关系攻略（306讲全量）",detail:"历史关系群：鹰鸽互补/ABC换念/利益判断/人情账户。关系是长期资产，可预期比亲密更值钱。",
+     models:[{id:"XT01",name:"先发结盟",d:"可预期的人是最佳结盟对象；分享关系框架就是打灯筛选同类。"},{id:"XT02",name:"鹰鸽互补",d:"鹰派鸽派是两种生存策略不是优劣；伟大事业两派携手。"},{id:"XT05",name:"ABC换念",d:"折磨你的不是事件A而是解释B，换B就换情绪结果C。"},{id:"XT06",name:"利益判断",d:"成年人判断靠利益不靠交情；读不懂情绪时按大利益行事。"}]},
+    /* ===== v3.4 新增：投资深化群（行为-公司-风险三支柱，挂顶叶PL） ===== */
+    {code:"YJF",name:"行为经济学透镜",count:23,group:11,color:"#ff8787",engine:false,source:"余剑峰·行为经济学（23项全量）",detail:"投资深化群：偏差=远古环境错配/双系统/激素与基因开关/三问框架。XJ每个偏差都能在此找到机制根源。",
+     models:[{id:"YJF001",name:"错配总纲",d:"行为偏差是远古环境适配现代环境的错配，不是笨而是环境变了。"},{id:"YJF002",name:"理性三层",d:"市场不能假设别人理性，要猜别人非理性程度，猜中者赢。"},{id:"YJF004",name:"双系统",d:"杏仁体快但错、前额叶慢但耗能；错误来自快系统默认启动。"},{id:"YJF006",name:"基因开关",d:"环境是基因的开关，天性+教养共同决定偏差程度。"}]},
+    {code:"TX",name:"公司金融透镜",count:38,group:11,color:"#ff6b6b",engine:false,source:"田轩·公司金融课（38讲全量）",detail:"投资深化群：融资/投资/治理/创新四模块；风投博弈、上市利弊、注册制、股权激励、做空清洁。看企业端怎么花钱怎么管钱。",
+     models:[{id:"TX001",name:"五道口金融",d:"公司金融终极目标是让企业活下来、活得更好、越来越值钱。"},{id:"TX004",name:"上市利弊",d:"上市融钱出名但被监督被定价，要权衡上市时机。"},{id:"TX006",name:"注册制",d:"注册制放开定价限制，市场说了算而非审批说了算。"},{id:"TX028",name:"机构投资者",d:"机构是市场稳定器也是监督者；散户结构决定市场波动形态。"}]},
+    {code:"ZXY",name:"风险管理透镜",count:22,group:11,color:"#fa5252",engine:false,source:"张晓燕·风险管理课（22讲全量）",detail:"投资深化群：识别敞口→衍生品对冲→度量希腊值→残余基差。可怕的不是风险，是不知道本来可以不承担。",
+     models:[{id:"ZXY001",name:"风险工具",d:"风险管理就是用金融工具管理风险；不知道可以不承担才是真风险。"},{id:"ZXY002",name:"两步风控",d:"先识别风险定目标敞口，再用衍生品对冲；目标是保障未来现金流。"},{id:"ZXY008",name:"期权权利",d:"期权给权利不给义务；买方最大损失=权利金，收益可无限。"},{id:"ZXY015",name:"VIX恐慌",d:"VIX=标普500期权隐含波动率；15-20正常，>30恐慌，>50危机。"}]},
+    {code:"HX",name:"宏观透镜",count:33,group:12,color:"#84e1a5",engine:false,source:"何帆·宏观经济学（32讲，实采33项，2026-11-07全课S级）",detail:"看什么：增长/政策/危机/开放四表。补 H 的周期纪律与 Z 的政策解读之上的框架本体——增长为何发生、政策为何反复、危机为何拖长、开放为何要有墙。33 律 HX001–HX033。",
+     models:[{id:"HX014",name:"政策反复必然",d:"短期硬约束（就业）一到，长期最优就得让路。"},{id:"HX018",name:"债务看结构",d:"中国债务风险在结构不在总量，看项目有没有现金流。"},{id:"HX021",name:"宽货币≠宽信用",d:"水卡在银行或绕进影子银行，问题在传导不在水量。"},{id:"HX026",name:"三难选择",d:"货币政策、汇率、资本流动三者只能保其二。"}]},
+    {code:"GB",name:"博弈透镜",count:51,group:12,color:"#f0a6ff",engine:false,source:"蒋文华·博弈论50讲（51讲实采，2026-11-07全课S级）",detail:"看什么：局面结构。两坐标四分类（顺序×信息）＋五层（前提/均衡/机制/演化/分配）。51 律 GB001–GB051。渠道谈判、平台规则、竞争定价、团队激励共用同一套判断。",
+     models:[{id:"GB005",name:"囚徒结构",d:"T>R>P>S 且 R−S>T−R 时必然背叛；改结构才能改结果。"},{id:"GB022",name:"监督工资平方根",d:"最优工资在「贡献×监督成本」的平方根附近。"},{id:"GB034",name:"一报还一报",d:"善良＋可报复＋宽容＋清晰，四样缺一合作就退化。"},{id:"GB049",name:"夏普利边际贡献",d:"分钱不看能力强弱，看缺了他团队会少赚多少。"}]},
+    /* ===== v3.6 新增：信息决策群（不确定性→信息→决策，挂颞叶TL/顶叶PL） ===== */
+    {code:"XL",name:"信息论透镜",count:41,group:13,color:"#7fe1ff",engine:false,source:"吴军·信息论40讲（41篇S级归档）",detail:"信息决策群：不确定性/编码/压缩/正交/互信息/增益/信噪比/交叉验证/大数据四层/幸存者偏差/奥卡姆/最大熵/老三论。判断信息价值只看一条：它消除了多少不确定性。",
+     models:[{id:"XL005",name:"比特度量",d:"信息量等于消除的不确定性，用比特计量，与篇幅和重要性无关。"},{id:"XL016",name:"信息增益",d:"一条信息的价值=它让结果的不确定性减少了多少，不是听起来多重要。"},{id:"XL024",name:"层级衰减",d:"每多一层信息按比例衰减一次；扁平化的理由是保住带宽与信任。"},{id:"XL035",name:"样本之选",d:"你看到的是活下来的样本；任何结论先问样本怎么选出来。"}]},
+    {code:"LXN",name:"青春期家长透镜",count:19,group:9,color:"#ff922b",engine:false,source:"李雪霓·青春期家长必修（19篇S级归档）",detail:"教育成长群：心身问题识别（进食/心境/焦虑/网瘾/自伤/外貌/霸凌）＋应对（新权威/三层在场/DEARMAN/行为后果/FAST）。先判是不是病，再谈怎么管。",
+     models:[{id:"LXN002",name:"三病同源",d:"进食障碍=心理病+社会病+家庭病；判断靠程度，就医靠精神科。"},{id:"LXN008",name:"五维失调",d:"五维（情绪/行为/认知/人际/自我）同时失调才是病；先稳关系再定规则。"},{id:"LXN013",name:"三层在场",d:"人在/心在/网络在三层，心在是枢纽；心不在，物理在场即监视。"},{id:"LXN017",name:"DEARMAN四段",d:"描述事实→表达感受→明确要求→鼓励对方，先写脚本再演练。"}]},
+    /* ===== v3.7 新增：组织治理群（权力与利益怎么被制度约束，挂额叶FF） ===== */
+    {code:"LSB",name:"公司治理透镜",count:30,group:14,color:"#a0e0ff",engine:false,source:"刘松博·公司治理30讲（30篇S级归档）",detail:"组织治理群：三缺陷（企业家悖论/内部人控制/小股东弱势）＋内外治理机制＋权力中心迁移。判断公司先看权力与利益怎么被制度约束，再看业务怎么做。30 律 LSB001–LSB030。",
+     models:[{id:"LSB001",name:"治理先于管理",d:"高管之上是治理、高管之下是管理；生死线在权力与利益如何被制度约束。"},{id:"LSB013",name:"系统制衡",d:"制约权力的不是更大的权力而是一套内外系统；权力大小是伪问题。"},{id:"LSB024",name:"谈判力定控制权",d:"控制权归谈判力更强的一方；股权分散企业最大风险是内部人失去控制。"},{id:"LSB030",name:"风险共担即权力",d:"出资、杠杆、劣后与对赌把雇佣改成合伙；担更大风险才配更大控制权。"}]}
+  ],
+  outer:[
+    {id:"FF",name:"前额叶·决策区",color:"#ffc83d",detail:"决策出口：三实模型→透镜选型→跨透镜接线→饕哥关切三段。"},
+    {id:"TL",name:"颞叶·知识库区",color:"#4de3ff",detail:"45 颗透镜引擎在此存储与检索，十五组知识群。"},
+    {id:"PL",name:"顶叶·实战接口区",color:"#9d4dff",detail:"八域调用：电商/投资/教育/健康/心理/法律/文案/娱乐。"},
+    {id:"OL",name:"枕叶·感知输入区",color:"#ff6ec7",detail:"输入通道：课程流水线/浏览器采集/图书蒸馏/全站搜索。"}
+  ]
+};
+var LINKS={
+  "E01":["W84","C13"],"E08":["YX09"],"J03":["FN07"],"FN05":["J218"],"XJ22":["H50"],
+  "MG47":["LD06"],"BI06":["LG12"],"SW21":["YX12"],"BR04":["SW02"],"LP23":["E01"],
+  "LG21":["W24"],"C60":["J108"],"C84":["W24"],"Z71":["J218"],"H113":["FN21"],
+  "YX09":["SW116"],"C77":["MG82"],
+  /* v3.3 新增跨域突触：健康×投资 / 心理×教育认知 / 法律×电商 等 */
+  "NT01":["XJ10"],"HU06":["C60"],"ML01":["C13"],"LT12":["FN02"],
+  "WH01":["C82"],"WH30":["C77"],"PP01":["F900"],
+  "CC01":["YX12"],"LT25":["SW116"],
+  /* v3.4 新增跨域突触：教育×组织 / 关系×营销 / 历史×管理 / 投资三支柱内部互证 */
+  "CXJ006":["WH01"],"CXJ001":["LD06"],"WJ03":["CXJ003"],"DX01":["LG30"],
+  "XT06":["SW02"],"SZ07":["MG82"],"YJF004":["XJ07"],"ZXY015":["J108"],"TX028":["J220"],
+  /* v3.5 新增跨域突触：宏观×周期纪律/政策解读/财务/金融，博弈×认知训练/管理/领导力/营销/商业实战 */
+  "HX014":["H50"],"HX018":["Z66"],"HX021":["FN07"],"HX026":["J218","GB034"],
+  "GB005":["MG82"],"GB022":["LD06"],"GB034":["YX09"],"GB049":["SW21"],"GB051":["C77"],
+  /* v3.6 新增跨域突触：信息论×认知更新/行为偏差/管理系统，青春期家长×家庭教育/共情在场 */
+  "XL016":["C13"],"XL035":["XJ07"],"XL024":["MG82"],
+  "LXN013":["WH88"],"LXN017":["CXJ001"],
+  /* v3.7 新增跨域突触：公司治理×组织设计（监督独立性）/×机构投资者（合伙人担险与治理） */
+  "LSB024":["MG82"],"LSB030":["TX028"]
+};
+/* ============ 布局坐标（全景静态模式） ============ */
+var CX=800,CY=880,CR=82;
+var POS={
+  "E":[560,440],"Z":[800,410],"H":[1060,470],"F":[800,570],
+  "J":[1240,630],"FN":[1330,820],"XJ":[1230,1010],
+  "MG":[1100,1230],"LD":[920,1330],"BI":[780,1390],"SW":[640,1310],"BR":[520,1210],
+  "YX":[340,1080],"LP":[430,930],"LG":[420,690],
+  "C":[470,570],
+  "W":[270,660],"R":[310,860],
+  /* v3.3 新域：健康域沿底部外弧（挂枕叶OL/顶叶PL） */
+  "HF":[1693,1205],"HT":[1597,1398],"HU":[1423,1597],"HG":[1289,1694],"HL":[1094,1783],
+  "HE":[883,1826],"DM":[668,1820],"MD":[460,1767],"NT":[269,1668],"ML":[130,1600],
+  /* v3.3 新域：心理域右侧外弧（挂顶叶PL/额叶FF） */
+  "WH":[1669,647],"PP":[1716,960],
+  /* v3.3 新域：法律域右上外弧（挂额叶FF） */
+  "LT":[1342,187],"CC":[1130,64],
+  /* v3.4 新域：教育成长群左上外弧 */
+  "WJ":[120,900],"DX":[110,1100],"CXJ":[110,1300],
+  /* v3.4 新域：历史关系群顶端外弧 */
+  "SZ":[330,150],"XT":[560,130],
+  /* v3.4 新域：投资深化群右侧外弧 */
+  "YJF":[1560,480],"TX":[1780,300],"ZXY":[1810,1120],
+  /* v3.5 新透镜：宏观（何帆HX）/ 博弈（蒋文华GB）挂右下外弧 */
+  "HX":[1600,1640],"GB":[1810,1440],
+  /* v3.6 新透镜：信息论（吴军XL）挂顶端外弧 / 青春期家长（李雪霓LXN）挂左侧教育群 */
+  "XL":[1620,-60],"LXN":[110,760],
+  /* v3.7 新透镜：公司治理（刘松博LSB）挂右侧外弧 */
+  "LSB":[1790,800]
+};
+var BRAIN={"TL":[250,290],"FF":[1350,290],"OL":[250,1470],"PL":[1350,1470]};
+var DEC_R=118;
+function decPos(i){var a=-Math.PI/2+i/D.decision.length*Math.PI*2;return [CX+Math.cos(a)*DEC_R,CY+Math.sin(a)*DEC_R];}
+/* ============ 工具 ============ */
+function el(tag,attrs,parent){var n=document.createElementNS("http://www.w3.org/2000/svg",tag);for(var k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n;}
+var NS="http://www.w3.org/2000/svg";
+function curvePath(x1,y1,x2,y2,bend){var mx=(x1+x2)/2,my=(y1+y2)/2;var dx=x2-x1,dy=y2-y1;var len=Math.sqrt(dx*dx+dy*dy)||1;var nx=-dy/len,ny=dx/len;var mx2=mx+nx*bend,my2=my+ny*bend;return "M"+x1+" "+y1+" Q"+mx2+" "+my2+" "+x2+" "+y2;}
+var svg=document.getElementById("g");
+var tip=document.getElementById("tooltip"),st=document.getElementById("status");
+/* ============ 星点背景 ============ */
+(function(){var s=document.getElementById("stars");for(var i=0;i<520;i++){var x=-200+Math.random()*2100,y=-160+Math.random()*2120,r=Math.random()*1.4+0.3,o=Math.random()*0.5+0.15;
+  var c=el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:r.toFixed(1),fill:"#8fa2c8",opacity:o.toFixed(2)},s);}}());
+/* ============ 四脑区 ============ */
+(function(){var g=document.getElementById("brainzones");for(var i=0;i<D.outer.length;i++){var o=D.outer[i],p=BRAIN[o.id];
+  var bw=300,bh=96,x=p[0]-bw/2,y=p[1]-bh/2;
+  var r=el("rect",{x:x,y:y,width:bw,height:bh,rx:16,fill:"rgba(255,255,255,0.03)",stroke:o.color,"stroke-opacity":0.35,"stroke-width":1.2,opacity:0.9},g);
+  var t1=el("text",{x:p[0],y:y+34,"text-anchor":"middle",fill:o.color,"font-size":15,"font-weight":"bold",opacity:0.9},g);t1.textContent=o.name;
+  var t2=el("text",{x:p[0],y:y+62,"text-anchor":"middle",fill:"#8fa2c8","font-size":9.5,opacity:0.75},g);t2.textContent=o.detail.split("：")[1]||o.detail;
+  r.addEventListener("mouseenter",function(ev,oo){return function(){showTip(ev||window.event,{t:oo.name+"（脑区）",s:oo.detail,tag:"脑区"})};}(null,o));
+  r.addEventListener("mousemove",moveTip);r.addEventListener("mouseleave",hideTip);
+}}());
+/* ============ 轨道环（决策环 + 虚线圈） ============ */
+(function(){var g=document.getElementById("rings");
+  el("circle",{cx:CX,cy:CY,r:DEC_R+14,fill:"none",stroke:"#ffc83d","stroke-opacity":0.12,"stroke-width":1,"stroke-dasharray":"2,7"},g);
+  el("circle",{cx:CX,cy:CY,r:DEC_R+52,fill:"none",stroke:"#3b4f7a","stroke-opacity":0.14,"stroke-width":1,"stroke-dasharray":"1,9"},g);
+})();
+/* ============ 核心 ============ */
+var coreG=document.getElementById("corewrap");
+el("circle",{cx:CX,cy:CY,r:170,fill:"url(#coreHalo)"},coreG);
+el("circle",{cx:CX,cy:CY,r:CR,fill:"url(#coreGrad)",filter:"url(#coreGlow)"},coreG);
+el("circle",{cx:CX,cy:CY,r:CR-22,fill:"#fff6dd",opacity:0.55},coreG);
+var ct=el("text",{x:CX,y:CY-8,"text-anchor":"middle",fill:"#5a3400","font-size":19,"font-weight":"800"},coreG);ct.textContent="认知内核";
+var ct2=el("text",{x:CX,y:CY+14,"text-anchor":"middle",fill:"#8a5a00","font-size":10.5,"font-weight":"600"},coreG);ct2.textContent="第一性原理 × 决策框架";
+/* 核心 hover */
+var coreBox=el("circle",{cx:CX,cy:CY,r:CR+6,fill:"transparent"},coreG);
+coreBox.addEventListener("mouseenter",function(){showTip({clientX:CX,clientY:CY},{t:"认知内核 · 第一性原理 × 决策框架",s:D.core.detail,tag:"核心"})});
+coreBox.addEventListener("mousemove",moveTip);coreBox.addEventListener("mouseleave",hideTip);
+/* ============ 决策环 6 节点 ============ */
+D.decision.forEach(function(d,i){
+  var p=decPos(i);
+  var n=el("circle",{cx:p[0],cy:p[1],r:22,fill:"#1a2440",stroke:"#ffc83d","stroke-width":1.6,filter:"url(#dropGlow)"},coreG);
+  n.classList.add("dc-node");
+  var t=el("text",{x:p[0],y:p[1]+4,"text-anchor":"middle",fill:"#ffd98a","font-size":10.5,"font-weight":"700"},coreG);t.textContent=d.id;
+  var t2=el("text",{x:p[0],y:p[1]+20,"text-anchor":"middle",fill:"#8fa2c8","font-size":8},coreG);t2.textContent=d.name;
+  n.addEventListener("mouseenter",function(ev,d){return function(){showTip(ev||window.event,{t:"决策 · "+d.id+" "+d.name,s:d.detail,tag:"决策环"})};}(null,d));
+  n.addEventListener("mousemove",moveTip);n.addEventListener("mouseleave",hideTip);
+});
+/* ============ 主线（中心→透镜）+ 流光 ============ */
+(function(){
+  var g=document.getElementById("mainlines");
+  D.lens.forEach(function(L,i){
+    var p=POS[L.code];
+    var d="M"+CX+" "+CY+" Q"+((CX+p[0])/2)+" "+((CY+p[1])/2+10)+" "+p[0]+" "+p[1];
+    var path=el("path",{d:d,fill:"none",stroke:L.color,"stroke-width":L.engine?1.7:1.1,"stroke-opacity":L.engine?0.5:0.24},g);
+    var pid="pl"+i;path.setAttribute("id",pid);
+    var dot=el("circle",{r:L.engine?3.2:2.2,fill:"#ffffff",filter:"url(#dropGlow)"},g);
+    var am=el("animateMotion",{dur:(3+i%3)+"s",repeatCount:"indefinite",rotate:"0"},dot);
+    var mp=el("mpath",{},am);mp.setAttributeNS("http://www.w3.org/1999/xlink","href","#"+pid);am.appendChild(mp);dot.appendChild(am);
+    var amp=el("animate",{attributeName:"opacity",values:"0.15;0.9;0.15",dur:(2.4+i%3)+"s",repeatCount:"indefinite"},dot);dot.appendChild(amp);
+  });
+})();
+/* ============ 跨域突触（发光贝塞尔） ============ */
+(function(){
+  var g=document.getElementById("synapses");
+  var seen={};
+  function targetPos(id){
+    for(var i=0;i<D.decision.length;i++)if(D.decision[i].id===id)return decPos(i);
+    for(var j=0;j<D.lens.length;j++){var L=D.lens[j];for(var k=0;k<L.models.length;k++)if(L.models[k].id===id)return POS[L.code];}
+    return null;
+  }
+  var n=0;
+  D.lens.forEach(function(L){
+    L.models.forEach(function(mo){
+      var lk=LINKS[mo.id];if(!lk)return;
+      var src=POS[L.code];
+      lk.forEach(function(tid){
+        if(tid===mo.id)return;
+        var kp=src[0]+"_"+src[1]+"_"+tid;if(seen[kp])return;seen[kp]=1;
+        var tp=targetPos(tid);if(!tp)return;
+        var bend=(Math.random()*80+40)*(Math.random()<0.5?-1:1);
+        var d=curvePath(src[0],src[1],tp[0],tp[1],bend);
+        var p=el("path",{d:d,fill:"none",stroke:"#00e5ff","stroke-width":1,"stroke-opacity":0.4,"stroke-dasharray":"5,4"},g);
+        p.classList.add("fiber");
+        n++;
+      });
+    });
+  });
+  document.getElementById("synapses").setAttribute("data-count",n);
+})();
+/* ============ 透镜节点 ============ */
+var lensG=document.getElementById("lenses");
+var lensNodes={};var activeLens=null;var modelG=document.getElementById("models");
+D.lens.forEach(function(L){
+  var p=POS[L.code];
+  var rad=L.engine?64:54;
+  var group=el("g",{"data-code":L.code},lensG);group.classList.add("lens");
+  var halo=el("circle",{cx:p[0],cy:p[1],r:rad+26,fill:L.color,opacity:0.10},group);
+  var body=el("circle",{cx:p[0],cy:p[1],r:rad,fill:"#10162e",stroke:L.color,"stroke-width":2.4},group);
+  var shine=el("circle",{cx:p[0]-rad*0.28,cy:p[1]-rad*0.32,r:rad*0.42,fill:"#ffffff",opacity:0.08},group);
+  var t1=el("text",{x:p[0],y:p[1]-2,"text-anchor":"middle",fill:L.color,"font-size":L.engine?21:18,"font-weight":"800"},group);
+  t1.textContent=L.code+" "+L.count+(L.engine?"★":"");
+  var t2=el("text",{x:p[0],y:p[1]+16,"text-anchor":"middle",fill:"#dfe7f7","font-size":L.engine?12:11},group);
+  t2.textContent=L.name;
+  var t3=el("text",{x:p[0],y:p[1]+30,"text-anchor":"middle",fill:"#5b6c94","font-size":8.5},group);
+  t3.textContent="来源："+L.source.split("（")[0];
+  lensNodes[L.code]=group;
+  group.addEventListener("mouseenter",function(ev,L){return function(){showTip(ev||window.event,{t:L.code+" "+L.name+" · "+L.count+" 模型"+(L.engine?" ★引擎":""),s:L.detail+" 来源："+L.source,tag:"透镜｜点击展开"})};}(null,L));
+  group.addEventListener("mousemove",moveTip);group.addEventListener("mouseleave",hideTip);
+  group.addEventListener("click",function(L){return function(){toggleLens(L);};}(L));
+});
+/* ============ 交互：tooltip / 展开 / 收起 ============ */
+function showTip(e,d){
+  tip.innerHTML="<div class='t'>"+d.t+"</div><div class='s'>"+(d.s||"")+"</div>"+(d.tag?"<div class='tip-legend'>"+d.tag+"</div>":"");
+  tip.style.display="block";
+  var tx=(e&&e.clientX||CX)+16,ty=(e&&e.clientY||CY)+16;
+  if(tx+300>window.innerWidth)tx=(e&&e.clientX||CX)-316;
+  if(ty+200>window.innerHeight)ty=(e&&e.clientY||CY)-210;
+  tip.style.left=tx+"px";tip.style.top=ty+"px";
+}
+function moveTip(e){if(tip.style.display!=="none"){var tx=e.clientX+16,ty=e.clientY+16;if(tx+300>window.innerWidth)tx=e.clientX-316;if(ty+200>window.innerHeight)ty=e.clientY-210;tip.style.left=tx+"px";tip.style.top=ty+"px";}}
+function hideTip(){tip.style.display="none";}
+function toggleLens(L){
+  if(activeLens===L.code){collapse();return;}
+  collapse();activeLens=L.code;
+  while(modelG.firstChild)modelG.removeChild(modelG.firstChild);
+  var p=POS[L.code];
+  var ax=el("circle",{cx:p[0],cy:p[1],r:112,fill:"none",stroke:L.color,"stroke-opacity":0.35,"stroke-width":1.2,"stroke-dasharray":"3,6"},modelG);
+  L.models.forEach(function(mo,mi){
+    var a=mi/L.models.length*Math.PI*2+0.3;var r=96;
+    var mx=p[0]+Math.cos(a)*r,my=p[1]+Math.sin(a)*r;
+    var line=el("line",{x1:p[0],y1:p[1],x2:mx,y2:my,stroke:L.color,"stroke-width":1.2,"stroke-opacity":0.5},modelG);
+    var m=el("circle",{cx:mx,cy:my,r:13,fill:L.color,stroke:"#ffffff","stroke-width":1,filter:"url(#dropGlow)"},modelG);
+    m.classList.add("model");
+    var mt=el("text",{x:mx,y:my+30,"text-anchor":"middle",fill:"#ffffff","font-size":11,"font-weight":"600"},modelG);mt.textContent=mo.name;
+    var mt2=el("text",{x:mx,y:my+43,"text-anchor":"middle",fill:L.color,"font-size":8.5},modelG);mt2.textContent=mo.id;
+    /* 突触 → 目标 */
+    var lk=LINKS[mo.id];
+    if(lk){lk.forEach(function(tid){
+      if(tid===mo.id)return;
+      var tp=null;
+      for(var i=0;i<D.decision.length;i++)if(D.decision[i].id===tid)tp=decPos(i);
+      if(!tp){for(var j=0;j<D.lens.length;j++){var L2=D.lens[j];for(var k=0;k<L2.models.length;k++)if(L2.models[k].id===tid)tp=POS[L2.code];}}
+      if(tp&&(tp[0]!==p[0]||tp[1]!==p[1])){
+        var bend=(Math.random()*60+20);
+        var d=curvePath(mx,my,tp[0],tp[1],bend);
+        var f=el("path",{d:d,fill:"none",stroke:"#00e5ff","stroke-width":1.6,"stroke-opacity":0.6},modelG);
+        f.classList.add("fiber");
+        var epo=el("circle",{cx:tp[0],cy:tp[1],r:8,fill:"#00e5ff",opacity:0.9,filter:"url(#dropGlow)"},modelG);
+      }
+    });}
+    m.addEventListener("mouseenter",function(ev,mo){return function(){showTip(ev||window.event,{t:mo.id+" "+mo.name,s:mo.d,tag:"模型"})};}(null,mo));
+    m.addEventListener("mousemove",moveTip);m.addEventListener("mouseleave",hideTip);
+  });
+  st.textContent="状态：已展开 "+L.code+" "+L.name+"（"+L.models.length+" 个代表模型 · 突触连接已点亮）";
+}
+function collapse(){
+  if(!activeLens)return;
+  while(modelG.firstChild)modelG.removeChild(modelG.firstChild);
+  st.textContent="状态：已收起 "+activeLens+" 透镜模型群";
+  activeLens=null;
+}
+svg.addEventListener("click",function(e){
+  if(e.target.closest&&e.target.closest(".lens"))return;
+  if(activeLens)collapse();
+});
+/* 状态条初始 */
+st.textContent="状态：点击透镜展开模型群，再次点击收起｜突触线 "+document.getElementById("synapses").getAttribute("data-count")+" 组";
+})();
+</script>
+</body>
+</html>
