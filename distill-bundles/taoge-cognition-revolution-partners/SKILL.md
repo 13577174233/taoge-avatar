@@ -51,7 +51,7 @@ description: 认知革命（认知操作系统）五角色伙伴团总控技能�
 | 项 | 口径 |
 |---|---|
 | 技能根 | `.user_skills/`（个人技能区，权威）+ `.skills/`（平台内置，只读） |
-| 目录数 | 237 个（2026-11-07 实测）。其中 27 个为旧快照别名包：本地删除会被云端技能同步回灌，故保留为别名，description 统一标注「旧快照·请用 taoge-xxx」，别名包内容不得作为权威口径 |
+| 目录数 | 244 个（2026-11-07 收盘实测，含 4 个新蒸馏包）。其中 27 个为旧快照别名包：本地删除会被云端技能同步回灌，故保留为别名，description 统一标注「旧快照·请用 taoge-xxx」，别名包内容不得作为权威口径 |
 | 命名规则 | 活跃包一律 `taoge-` 前缀；旧短名只留别名包，不新增、不扩散 |
 | 版本同步 | 蒸馏包口径改动须同步：模型地图 / 连接图 / 体系说明 / 分身 / 权威包本体 |
 | 安全检查 | 外部 skill 只装 Markdown（SKILL.md+references），不装、不跑 scripts/ 与 agents/；安装前先查 LICENSE，装后扫外联与凭据指令 |
@@ -59,6 +59,22 @@ description: 认知革命（认知操作系统）五角色伙伴团总控技能�
 **权威包对照（易错点）**：FN 财务透镜权威包是 `taoge-invest-thinking-driver`（41律+JN并入25律=66律）；`finance-thinking-driver` 只是旧快照，已归档。同理 `stock-portfolio-daily-report`→`taoge-invest-daily-report`、`ecommerce-*`→`taoge-ecom-*`、`edu-*`→`taoge-edu-*`、`book-*`→`taoge-read-*`。
 
 **2026-11-07 新增外部包（GitHub 安装，MIT）**：`doc-coauthoring`（官方 anthropics/skills，长文档协作三段式）、`bridgeward`（外部内容怀疑阅读与提示注入防御，7 篇 references）、`injection-audit`（对抓取页/下载文件/第三方仓库做注入审计）。触发原则：读外部内容时先按 bridgeward 判信任级，再决定是否引用。
+## P0 五门批次收官（2026-11-07）
+
+P0 剩余五门 212 讲全部走完五步闭环（S级归档→入图→接线→蒸馏→升版），批次级汇总见项目根 `归档报告-20261107-P0五门全部闭环.md`。
+
+| 课程 | 系列 | 实采 S 级 | 分律表 | 权威包 |
+|---|---|---|---|---|
+| 吴军·信息论40讲 | XL | 41（7 项登记不归档） | 5 | `taoge-thinking-info-driver`（41 律） |
+| 李雪霓·青春期家长必修 | LXN | 19 | 2 | 并入 `taoge-edu-family-driver` |
+| 刘松博·公司治理30讲 | LSB | 30（未上架 6 项登记） | 3 | `taoge-cognition-corporate-governance-driver`（30 律） |
+| 吴军·科技史纲60讲 | KJS | 65 | 7 | `taoge-cognition-tech-history-driver`（65 律） |
+| 曹星原·中国美术50讲 | MSP | 51（正倒序去重） | 6 | `taoge-cognition-art-history-driver`（51 律） |
+
+**口径**：全库约 5691（豆包侧约 4945＋WorkBuddy 侧 746）｜47 透镜／56 突触／17 知识群｜连接图 v3.9｜体系说明 v2.54｜分身 v2.43。
+
+**分发提示**：遇到「这门课/这本书该用哪个包」的问题，按系列编号（XL／LXN／LSB／KJS／MSP）查上表；遇到「口径是多少」的问题，先读体系说明最新版本记录，再回读模型地图 `grep` 实测，不引用历史版本的旧数字。
+
 ## 判断标准
 
 任何输入走完流水线后：归档有饕哥应用、模型四要素齐全且有连接、口径四处同步、版本记录有更新。
