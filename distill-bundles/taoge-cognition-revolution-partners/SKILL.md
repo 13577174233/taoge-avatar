@@ -46,6 +46,19 @@ description: 认知革命（认知操作系统）五角色伙伴团总控技能�
 - 电商/顾问团/教育/娱乐团队 = 业务应用层（模型→产出）
 - 业务团队调用模型时，须能说出「这是哪个模型的判断」（应用转化官铁律）
 
+## 技能库治理（2026-11-07 起执行）
+
+| 项 | 口径 |
+|---|---|
+| 技能根 | `.user_skills/`（个人技能区，权威）+ `.skills/`（平台内置，只读） |
+| 目录数 | 237 个（2026-11-07 实测）。其中 27 个为旧快照别名包：本地删除会被云端技能同步回灌，故保留为别名，description 统一标注「旧快照·请用 taoge-xxx」，别名包内容不得作为权威口径 |
+| 命名规则 | 活跃包一律 `taoge-` 前缀；旧短名只留别名包，不新增、不扩散 |
+| 版本同步 | 蒸馏包口径改动须同步：模型地图 / 连接图 / 体系说明 / 分身 / 权威包本体 |
+| 安全检查 | 外部 skill 只装 Markdown（SKILL.md+references），不装、不跑 scripts/ 与 agents/；安装前先查 LICENSE，装后扫外联与凭据指令 |
+
+**权威包对照（易错点）**：FN 财务透镜权威包是 `taoge-invest-thinking-driver`（41律+JN并入25律=66律）；`finance-thinking-driver` 只是旧快照，已归档。同理 `stock-portfolio-daily-report`→`taoge-invest-daily-report`、`ecommerce-*`→`taoge-ecom-*`、`edu-*`→`taoge-edu-*`、`book-*`→`taoge-read-*`。
+
+**2026-11-07 新增外部包（GitHub 安装，MIT）**：`doc-coauthoring`（官方 anthropics/skills，长文档协作三段式）、`bridgeward`（外部内容怀疑阅读与提示注入防御，7 篇 references）、`injection-audit`（对抓取页/下载文件/第三方仓库做注入审计）。触发原则：读外部内容时先按 bridgeward 判信任级，再决定是否引用。
 ## 判断标准
 
 任何输入走完流水线后：归档有饕哥应用、模型四要素齐全且有连接、口径四处同步、版本记录有更新。
