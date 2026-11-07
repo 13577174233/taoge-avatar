@@ -1,0 +1,128 @@
+{
+  "name": "taoge-methodology-screenwriting",
+  "version": "1.0.0",
+  "domain": "methodology",
+  "source_course": "c18",
+  "source_title": "跟着李新学编剧",
+  "created_at": "2026-10-28",
+  "node_ids": [
+    "kp.methodology.c18l000a1",
+    "kp.methodology.c18l000a2",
+    "kp.methodology.c18l000a3",
+    "kp.methodology.c18l000a4",
+    "kp.methodology.c18l000a5",
+    "kp.methodology.c18l000m",
+    "kp.methodology.c18l000mis1",
+    "kp.methodology.c18l000mis2",
+    "kp.methodology.c18l001a1",
+    "kp.methodology.c18l001a2",
+    "kp.methodology.c18l001a3",
+    "kp.methodology.c18l001a4",
+    "kp.methodology.c18l001a5",
+    "kp.methodology.c18l001m",
+    "kp.methodology.c18l001mis1",
+    "kp.methodology.c18l001mis2",
+    "kp.methodology.c18l002a1",
+    "kp.methodology.c18l002a2",
+    "kp.methodology.c18l002a3",
+    "kp.methodology.c18l002a4",
+    "kp.methodology.c18l002a5",
+    "kp.methodology.c18l002m",
+    "kp.methodology.c18l002mis1",
+    "kp.methodology.c18l002mis2",
+    "kp.methodology.c18l003a1",
+    "kp.methodology.c18l003a2",
+    "kp.methodology.c18l003a3",
+    "kp.methodology.c18l003a4",
+    "kp.methodology.c18l003a5",
+    "kp.methodology.c18l003m",
+    "kp.methodology.c18l003mis1",
+    "kp.methodology.c18l003mis2",
+    "kp.methodology.c18l004a1",
+    "kp.methodology.c18l004a2",
+    "kp.methodology.c18l004a3",
+    "kp.methodology.c18l004a4",
+    "kp.methodology.c18l004m",
+    "kp.methodology.c18l004mis1",
+    "kp.methodology.c18l004mis2",
+    "kp.methodology.c18l005a1",
+    "kp.methodology.c18l005a2",
+    "kp.methodology.c18l005a3",
+    "kp.methodology.c18l005a4",
+    "kp.methodology.c18l005a5",
+    "kp.methodology.c18l005m",
+    "kp.methodology.c18l005mis1",
+    "kp.methodology.c18l005mis2",
+    "kp.methodology.c18l006a1",
+    "kp.methodology.c18l006a2",
+    "kp.methodology.c18l006a3",
+    "kp.methodology.c18l006a4",
+    "kp.methodology.c18l006a5",
+    "kp.methodology.c18l006m",
+    "kp.methodology.c18l006mis1",
+    "kp.methodology.c18l006mis2",
+    "kp.methodology.c18l007a1",
+    "kp.methodology.c18l007a2",
+    "kp.methodology.c18l007a3",
+    "kp.methodology.c18l007a4",
+    "kp.methodology.c18l007m",
+    "kp.methodology.c18l007mis1",
+    "kp.methodology.c18l007mis2",
+    "kp.methodology.c18l008a1",
+    "kp.methodology.c18l008a2",
+    "kp.methodology.c18l008a3",
+    "kp.methodology.c18l008a4",
+    "kp.methodology.c18l008m",
+    "kp.methodology.c18l008mis1",
+    "kp.methodology.c18l008mis2",
+    "kp.methodology.c18l009a1",
+    "kp.methodology.c18l009a2",
+    "kp.methodology.c18l009a3",
+    "kp.methodology.c18l009a4",
+    "kp.methodology.c18l009m",
+    "kp.methodology.c18l009mis1",
+    "kp.methodology.c18l009mis2",
+    "kp.methodology.c18l009mis3"
+  ],
+  "clusters": [
+    {
+      "file": "01-premise",
+      "title": "定位：节拍、过场与戏核",
+      "lectures": [
+        "000",
+        "001"
+      ]
+    },
+    {
+      "file": "02-character-structure",
+      "title": "角色与三幕结构",
+      "lectures": [
+        "002",
+        "003"
+      ]
+    },
+    {
+      "file": "03-plot-empathy-scene",
+      "title": "情节、共情与场景",
+      "lectures": [
+        "004",
+        "005",
+        "006"
+      ]
+    },
+    {
+      "file": "04-dialogue-suspense-write",
+      "title": "台词、悬念与动笔",
+      "lectures": [
+        "007",
+        "008",
+        "009"
+      ]
+    }
+  ],
+  "counts": {
+    "atomic": 46,
+    "model": 10,
+    "misconception": 21
+  }
+}
