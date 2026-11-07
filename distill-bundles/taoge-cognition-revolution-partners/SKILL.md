@@ -52,8 +52,8 @@ description: 认知革命（认知操作系统）五角色伙伴团总控技能�
 |---|---|
 | 技能根 | `.user_skills/`（个人技能区，权威）+ `.skills/`（平台内置，只读） |
 | 目录数 | 246 个条目（2026-11-07 收盘实测，含 `.config`）= taoge 权威包 **101** ＋ 桥接别名包 **40** ＋ 其他 **104**（第三方营销/写作类 skill 与独立业务包）＋ `.config` 1；其中 SKILL.md 计 **245** |
-| 桥接包核验 | 40 个桥接包的「当前活跃技能为 X」指向逐条核对，**断链 0**；桥接正文体积≥权威包的 8 个（ecommerce-annual-planning／stock-portfolio-daily-report／finance-thinking-driver／hegang-history-driver／personal-reading-system／ecommerce-content-ops／cognition-training-driver／香帅金融学蒸馏）说明其仍携带旧全量内容，只作查旧用，不作口径 |
-| 去重结论 | 245 个 SKILL.md 全量 md5 比对：**完全同文重复组 0 组**，无真正重复包；差异全部来自桥接层自带的「旧快照」头注 |
+| 桥接包核验 | 40 个桥接包的「当前活跃技能为 X」指向逐条核对，**断链 0**；桥接正文体积≥权威包的实测 **3** 个（ecommerce-content-ops 11240≥10294／new-product-market-analysis 6768≥6159／wechat-moments-copywriting 6675≥3694）说明仍携带旧全量内容，只作查旧用，不作口径；其余 37 个已瘦身为指路页 |
+| 去重结论 | 244 个 SKILL.md（marketingskills 为第三方仓库无 SKILL.md）全量 md5 比对：**完全同文重复组 0 组**，无真正重复包；差异全部来自桥接层自带的「旧快照」头注 |
 | 命名规则 | 活跃包一律 `taoge-` 前缀；旧短名只留别名包，不新增、不扩散 |
 | 版本同步 | 蒸馏包口径改动须同步：模型地图 / 连接图 / 体系说明 / 分身 / 权威包本体 |
 | 安全检查 | 外部 skill 只装 Markdown（SKILL.md+references），不装、不跑 scripts/ 与 agents/；安装前先查 LICENSE，装后扫外联与凭据指令 |
