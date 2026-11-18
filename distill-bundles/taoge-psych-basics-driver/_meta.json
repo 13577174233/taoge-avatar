@@ -1,0 +1,16 @@
+{
+  "name": "taoge-psych-basics-driver",
+  "version": "1.0.2",
+  "skill_md_lines": 138,
+  "skill_md_bytes": 10967,
+  "references": 0,
+  "references_files": [],
+  "has_assets": false,
+  "spec_check": {
+    "skill_md_le_400_lines": true,
+    "has_references": false
+  },
+  "generated_at": "2026-11-13",
+  "generator": "skill-audit-20261113（按 WorkBuddy specs/skill-spec.md v1.0 补登，未新增知识）",
+  "version_source": "2026-11-13 补显式失败分支（D3），知识正文未动"
+}
