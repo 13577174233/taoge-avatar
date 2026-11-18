@@ -1,0 +1,22 @@
+{
+  "name": "taoge-methodology-agentic-eval",
+  "version": "1.2.0",
+  "kind": "knowledge-network",
+  "domain": "methodology",
+  "source_course": "external",
+  "source_title": "导入自 github/awesome-copilot contributors/agentic-eval",
+  "created_at": "2026-11-18",
+  "last_synced": "2026-11-18",
+  "graph_snapshot": "external",
+  "node_count": 0,
+  "node_ids": [],
+  "counts": {
+    "model": 0,
+    "atomic": 0,
+    "misconception": 0
+  },
+  "license": "MIT",
+  "attribution": "github/awesome-copilot contributors",
+  "import_note": "外部已蒸馏技能直接导入，未进入 14 字段卡/图；正文原样保留、未改写",
+  "import_layout": "upstream-preserving（scripts/、REFERENCE.md、LICENSE.txt 保留原相对路径）"
+}
