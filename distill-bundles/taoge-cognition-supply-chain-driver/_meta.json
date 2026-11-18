@@ -1,0 +1,90 @@
+{
+  "name": "taoge-cognition-supply-chain-driver",
+  "version": "1.0.2",
+  "domain": "economics",
+  "source_course": "c26",
+  "source_title": "跟巴奴学供应链打造",
+  "created_at": "2026-10-28",
+  "node_ids": [
+    "kp.economics.c26l000a1",
+    "kp.economics.c26l000a2",
+    "kp.economics.c26l000a3",
+    "kp.economics.c26l000a4",
+    "kp.economics.c26l000m",
+    "kp.economics.c26l000mis1",
+    "kp.economics.c26l000mis2",
+    "kp.economics.c26l000mis3",
+    "kp.economics.c26l001a1",
+    "kp.economics.c26l001a2",
+    "kp.economics.c26l001a3",
+    "kp.economics.c26l001m",
+    "kp.economics.c26l001mis1",
+    "kp.economics.c26l001mis2",
+    "kp.economics.c26l001mis3",
+    "kp.economics.c26l002a1",
+    "kp.economics.c26l002a2",
+    "kp.economics.c26l002a3",
+    "kp.economics.c26l002m",
+    "kp.economics.c26l002mis1",
+    "kp.economics.c26l002mis2",
+    "kp.economics.c26l002mis3",
+    "kp.economics.c26l003a1",
+    "kp.economics.c26l003a2",
+    "kp.economics.c26l003a3",
+    "kp.economics.c26l003m",
+    "kp.economics.c26l003mis1",
+    "kp.economics.c26l003mis2",
+    "kp.economics.c26l003mis3",
+    "kp.economics.c26l004a1",
+    "kp.economics.c26l004a2",
+    "kp.economics.c26l004a3",
+    "kp.economics.c26l004m",
+    "kp.economics.c26l004mis1",
+    "kp.economics.c26l004mis2",
+    "kp.economics.c26l004mis3",
+    "kp.economics.c26l005a1",
+    "kp.economics.c26l005a2",
+    "kp.economics.c26l005a3",
+    "kp.economics.c26l005m",
+    "kp.economics.c26l005mis1",
+    "kp.economics.c26l005mis2",
+    "kp.economics.c26l005mis3"
+  ],
+  "clusters": [
+    {
+      "file": "01-strategy",
+      "title": "战略前提：护城河、三代、对手定义、粮草先行",
+      "lectures": [
+        "000"
+      ]
+    },
+    {
+      "file": "02-build",
+      "title": "采购与枢纽：配得上、长期关系、央厨、冷链",
+      "lectures": [
+        "001",
+        "002",
+        "003"
+      ]
+    },
+    {
+      "file": "03-quality",
+      "title": "品控与价值观：底线金线、稽核、量化、长期主义",
+      "lectures": [
+        "004",
+        "005"
+      ]
+    }
+  ],
+  "counts": {
+    "atomic": 19,
+    "model": 6,
+    "misconception": 18
+  },
+  "last_synced": "2026-11-08",
+  "graph_snapshot": "20261108",
+  "node_count": 43,
+  "version_source": "2026-11-13 补显式失败分支（D3），知识正文未动",
+  "skill_md_lines": 64,
+  "skill_md_bytes": 4430
+}
