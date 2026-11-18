@@ -1,0 +1,32 @@
+{
+  "name": "taoge-cognition-elite-daily",
+  "version": "1.0.0",
+  "kind": "index-layer",
+  "created_at": "2026-11-08",
+  "last_synced": "2026-11-08",
+  "graph_snapshot": "20261108",
+  "source_courses": [
+    "c20",
+    "c21",
+    "c22",
+    "c23"
+  ],
+  "lectures": 1277,
+  "per_course": {
+    "c20": 316,
+    "c21": 325,
+    "c22": 318,
+    "c23": 318
+  },
+  "node_prefix": "kp.thinking.cNNlNNNm",
+  "dedup_note": "只做逐讲索引，不复制驱动包的 1005 条核心律",
+  "references": [
+    "01-c20.md",
+    "02-c21.md",
+    "03-c22.md",
+    "04-c23.md"
+  ],
+  "version_source": "2026-11-13 首次纳入版本管理：治理基线 1.0.0，非内容版本号，实质改动时按升版规则递增",
+  "skill_md_lines": 79,
+  "skill_md_bytes": 4664
+}
