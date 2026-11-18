@@ -1,0 +1,20 @@
+{
+  "name": "taoge-product-scout",
+  "version": "1.0.0",
+  "skill_md_lines": 156,
+  "skill_md_bytes": 9817,
+  "references": 3,
+  "references_files": [
+    "channel-matrix.md",
+    "review-mining.md",
+    "xhs-note-analysis.md"
+  ],
+  "has_assets": false,
+  "spec_check": {
+    "skill_md_le_400_lines": true,
+    "has_references": true
+  },
+  "generated_at": "2026-11-13",
+  "generator": "skill-audit-20261113（按 WorkBuddy specs/skill-spec.md v1.0 补登，未新增知识）",
+  "version_source": "2026-11-13 首次纳入版本管理：治理基线 1.0.0，非内容版本号，实质改动时按升版规则递增"
+}
