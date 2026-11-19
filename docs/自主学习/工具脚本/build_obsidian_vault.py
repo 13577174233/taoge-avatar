@@ -14,7 +14,7 @@
 用法：python3 10_工具脚本/build_obsidian_vault.py [--dry-run]
 自检：生成后统计节点/边/断链，断链必须为 0。
 """
-import os, re, json, sys, datetime
+import os, re, json, sys, glob, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "03_思维模型库", "神经网络连接图v5.0.html")
@@ -169,8 +169,32 @@ def parse_source():
     return lens, core
 
 
+LAW_ROW = re.compile(r'^\|\s*([A-Z]{2,4}[0-9]{2,4})\s*\|\s*([^|]{1,40})\|', re.M)
+
+
+def load_law_lists():
+    """从 04_课程学习/*/_laws_*.md 抽 透镜码 → [(id, 短名)]，用于内嵌全量清单。
+    只做只读抽取，不再造双链：图表节点数不受影响。"""
+    out = {}
+    for f in glob.glob(os.path.join(ROOT, "04_课程学习", "*", "_laws_*.md")):
+        try:
+            t = open(f, encoding="utf-8", errors="ignore").read()
+        except OSError:
+            continue
+        for m in LAW_ROW.finditer(t):
+            code = re.match(r"[A-Z]{2,4}", m.group(1)).group(0)
+            name = m.group(2).strip()
+            if not name:
+                continue
+            lst = out.setdefault(code, [])
+            if (m.group(1), name) not in lst:
+                lst.append((m.group(1), name))
+    return {k: v for k, v in out.items() if v}
+
+
 def build():
     lens, core = parse_source()
+    LAWS = load_law_lists()
     today = datetime.date.today().isoformat()
     created = []
     edges = 0
@@ -234,8 +258,8 @@ def build():
         edges += len(alive)
     for a, b, why in BRIDGES:
         if a in byc and b in byc:
-            bridge_rows.append(f"| [[{a}·{byc[a]['name']}]] | [[{b}·{byc[b]['name']}]] | {why} |")
-    syn_rows = [f"| [[{r['from']} {byid[r['from']]['name']}]] | [[{r['to']} {byid[r['to']]['name']}]] | {r['why']} |" for r in SYN]
+            bridge_rows.append(f"| {a}·{byc[a]['name']} | {b}·{byc[b]['name']} | {why} |")
+    syn_rows = [f"| {r['from']} {byid[r['from']]['name']} | {r['to']} {byid[r['to']]['name']} | {r['why']} |" for r in SYN]
 
     t0 = f"""---
 类型: 总图
@@ -250,7 +274,7 @@ tags: [神经网络, MOC]
 # 神经网络总图
 
 > 一句话：{len(lens)} 个透镜 × {tot_models} 个模型 ＝ 一张可按图索骥的判断网。上层给视角，中层给机制，底层给动作。
-> 口径：图内 {tot_models} 个是**代表模型**（v5.0 抽样），全库模型约 6,297（v2.95）不在图上；跨域突触 {len(SYN)} 条为历史记录可回溯部分（台账见 [[04 横向接线总表]]）。
+> 全量清单：能抽到律表的透镜，已在各自笔记里用「全量清单（折叠）」内嵌（纯文本、不上图）；无律表的透镜只有抽样。\n> 口径：图内 {tot_models} 个是**代表模型**（v5.0 抽样），全库模型约 6,297（v2.95）不在图上；跨域突触 {len(SYN)} 条为历史记录可回溯部分（台账见 [[04 横向接线总表]]）。
 > 这是 Obsidian 里的**可编辑主图**；HTML 快照只读留档，见文末。
 
 ## 五层结构
@@ -319,6 +343,8 @@ tags: [神经网络, 索引, 接线]
 
 > 上级 [[00 神经网络总图]]｜透镜级接线 {len(bridge_rows)} 条 ＋ 模型级突触 {len(syn_rows)} 条
 > 规则：只在「同一问题需要两把尺子」时才接线；接得太多等于没接。
+> **本页是索引，故意不加双链**：表内透镜与模型一律用纯文本名，避免它变成与总图并列的第二枢纽。要跳转请回 [[00 神经网络总图]]，或在搜索里直接打 id。
+> 标注「推断：」的串线说明是按两个模型语义补写的，非原文记录；无标注的才是台账原文。
 
 ## 一、透镜级接线（{len(bridge_rows)}）
 
@@ -372,6 +398,15 @@ tags: [神经网络, 分域]
             rows.append(f"| [[{m['id']} {m['name']}]] | {m['d']} |")
             edges += 1
         back = f"\n## 原文清单\n\n- [[{os.path.splitext(lst)[0]}]]\n" if lst and os.path.exists(os.path.join(ROOT, "03_思维模型库", lst)) else ""
+        laws = LAWS.get(L["code"], [])
+        full = ""
+        if laws:
+            rows_l = [f"| {i} | {n} |" for i, n in laws]
+            full = (f"\n## 全量清单（折叠，{len(laws)} 条）\n\n"
+                    f"<details><summary>展开：本透镜全部 {len(laws)} 条（图内只画了 {len(L['models'])} 个代表模型）</summary>\n\n"
+                    "| 编号 | 短名 |\n|---|---|\n" + "\n".join(rows_l) +
+                    "\n\n</details>\n\n> 清单为纯文本，不加双链——全量上图会把图压成一团；要跳转用搜索打编号。\n")
+
         nb = nbr.get(L["code"], [])
         bridge = ""
         if nb:
@@ -402,7 +437,7 @@ tags: [神经网络, 透镜{', 引擎' if L['engine'] else ''}]
 | 模型 | 一句话 |
 |---|---|
 {chr(10).join(rows) if rows else '| — | 该透镜尚未拆出独立模型 |'}
-{bridge}{back}
+{bridge}{full}{back}
 """
         w(f"02 透镜/{safe(L['code']+'·'+L['name'])}.md", text)
 
