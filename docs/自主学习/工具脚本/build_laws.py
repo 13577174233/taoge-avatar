@@ -47,7 +47,9 @@ def load_seed(path):
         if not line or line.startswith("#"):
             continue
         a, b, c = line.split("|")
-        rows.append((a.strip(), b.strip(), c.strip()))
+        m = re.match(r"([A-Z]{1,4})(\d{1,3})", a.strip())
+        code = f"{m.group(1)}{int(m.group(2)):03d}" if m else a.strip()
+        rows.append((code, b.strip(), c.strip()))
     return rows
 
 
@@ -55,7 +57,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--course", required=True)
     ap.add_argument("--prefix", required=True)
-    ap.add_argument("--seed", required=True)
+    ap.add_argument("--seed", default="")
+    ap.add_argument("--catalog-only", action="store_true")
     ap.add_argument("--dry", action="store_true")
     a = ap.parse_args()
     d, pre = a.course, a.prefix
@@ -64,7 +67,7 @@ def main():
     for rf in raws:
         for title, body in blocks(os.path.join(RAW, rf)):
             bks.append((title, body))
-    seeds = load_seed(a.seed)
+    seeds = [] if a.catalog_only else load_seed(a.seed)
 
     # 讲次编号（与全文合订本一致）
     import build_course_book as B
@@ -73,21 +76,38 @@ def main():
 
     rows = []
     for code, name, line in seeds:
-        cand = [i for i, (t, _b) in enumerate(bks) if t.startswith(code)]
-        if not cand:
-            k = kw(name + " " + line)
-            scored = []
-            for i, (t, b) in enumerate(bks):
-                s = len(k & kw(t + " " + b[:3000]))
-                scored.append((s, i))
-            scored.sort(reverse=True)
-            cand = [scored[0][1]]
-        i = cand[0]
-        body = bks[i][1]
         k = kw(name + " " + line)
+        # 1) 块标题自带同号编号 → 直取
+        same = [i for i, (t, _b) in enumerate(bks) if re.match(r"^" + re.escape(code) + r"(\D|$)", t)]
+        if same:
+            i = same[0]
+        else:
+            # 2) 关键词打分取最佳；全无命中才退回「编号＝讲次」
+            scored = []
+            for j, (t, b) in enumerate(bks):
+                scored.append((len(k & kw(t + " " + b[:3000])), j))
+            scored.sort(reverse=True)
+            best_i, best_s = scored[0][1], scored[0][0]
+            num = int(re.sub(r"[A-Z]", "", code))
+            if best_s >= 2:
+                i = best_i
+            elif 1 <= num <= len(bks):
+                i = num - 1          # 关键词全无命中时才退回「编号＝讲次」
+            else:
+                i = best_i
+        body = bks[i][1]
         best, bs = "", -1
         for st in sentences(body):
-            if not (12 <= len(st) <= 150):
+            if not (20 <= len(st) <= 150):
+                continue
+            # 排除讲内小标题行（如「02｜结构模块：…？」「1. 引言」）与纯问句标题
+            if re.match(r"^\d{1,2}\s*[｜|]\.?", st) or re.match(r"^\d{1,2}\s*\.\s", st):
+                continue
+            if len(st) < 30 and "，" not in st and st.endswith("？"):
+                continue
+            if "｜" in st or "|" in st:          # 讲内标题行（「20讲 ｜ 标题」，含半角竖线）
+                continue
+            if not st.endswith(("。", "？", "！", "”")) and "，" not in st:
                 continue
             sc = len(k & kw(st)) * 2 + min(len(st), 60) / 60.0
             if sc > bs:
@@ -133,8 +153,11 @@ def main():
          "| 提炼句 | 原文无对应句，由多句归纳（锚点带 ≈） | 只能作为断言引用，不得倒注为讲师原话 |", "",
          "## 律表", "", "| 编号 | 短名 | 一句话 | 来源（讲次） | 证据 | 原文锚点 |",
          "|---|---|---|---|---|---|"]
+    def esc(x):
+        return x.replace("|", "｜")
+
     for code, name, line, src, verdict, anchor, c, fp in rows:
-        L.append(f"| {code} | {name} | {line} | {src} | {verdict} | {anchor} |")
+        L.append(f"| {code} | {esc(name)} | {esc(line)} | {esc(src)} | {verdict} | {esc(anchor)} |")
     L += ["", "## 口径与边界", "",
           f"- 字符口径：锚点所在讲正文 `len()` 去换行；全课合计 {sum(r[6] for r in rows):,} 字符（仅统计被锚定的讲）。",
           f"- 讲次覆盖率 {len(set(r[3] for r in rows))}/{len(bks)}：{len(bks)-len(set(r[3] for r in rows))} 讲未承载律条（发刊词/结语类）。",
