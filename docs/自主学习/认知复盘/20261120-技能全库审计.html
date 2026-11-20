@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>技能全库审计 2026-11-20</title>
+<title>B3 收口｜技能全库审计 2026-11-20</title>
 <style>
 :root{--bg:#0f1216;--card:#171c22;--line:#2a323b;--txt:#e6e9ee;--dim:#94a0ad;--gold:#c9a227;--red:#d4574e;--green:#4f9d69}
 *{box-sizing:border-box}
@@ -104,6 +104,14 @@ tr:last-child td{border-bottom:none}
 <tr><td>B2 范围</td><td>电商 12 ＋ 教育 8；其中 3 个已由 B1 收口，实做 17 个</td></tr>
 <tr><td>结果</td><td>电商域、教育域缺口清零，全部 1.0.0 → 1.1.0</td></tr>
 <tr><td>外部技能</td><td>obra/superpowers 装 5 个（verification / systematic-debugging / writing-plans / executing-plans / dispatching-parallel-agents），commit 22f0b463e7a5，MIT</td></tr>
+</table>
+<h2>八、B3 收口（20 个）与 B2 实测对账</h2>
+<table>
+<tr><th>项</th><th>结果</th></tr>
+<tr><td>B3 处理</td><td>20 个高频缺口包，逐个只补缺节（边界／失败／速查），版本按现状加一位</td></tr>
+<tr><td>验证</td><td>20/20 三节齐全（h2 标题断言）</td></tr>
+<tr><td>B2 对账</td><td>按 h2 语义重测，B2「电商/教育清零」不成立：10 包仍缺节（电商 8、教育 2），多数只缺失败模式</td></tr>
+<tr><td>剩余</td><td>原 58 个有缺口包中，B3 收口 20，仍余 38 个（三全缺 8、缺速查 4、缺失败 15、缺边界 2）</td></tr>
 </table>
 </body>
 </html>
