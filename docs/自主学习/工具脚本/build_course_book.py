@@ -50,8 +50,30 @@ def blocks(path):
     out = []
     # parts[0] 是文件头（采集日期/规模/结构说明），不是讲次正文，跳过
     for i in range(1, len(parts) - 1, 2):
-        out.append((parts[i].strip(), parts[i + 1]))
+        out.append((parts[i].strip(), clean_head(parts[i + 1])))
     return out
+
+
+# 讲次正文开头的节目头（mp3 文件名／时长／「某某亲述」等），最多剥 6 行
+HEAD_PATS = (re.compile(r".+\.(mp3|m4a)\s*$", re.I),
+             re.compile(r"^约?\d+\s*分(\d+\s*秒)?$"),
+             re.compile(r"^(约|时长)\s*[:：]?\s*\d+"),
+             re.compile(r"^\S{2,8}(亲述|讲述|转述)$"))
+
+
+def clean_head(body, limit=6):
+    lines = body.split("\n")
+    k = 0
+    while k < len(lines) and k < limit:
+        ln = lines[k].strip()
+        if not ln:
+            k += 1
+            continue
+        if any(p.match(ln) for p in HEAD_PATS):
+            k += 1
+            continue
+        break
+    return "\n".join(lines[k:]).lstrip("\n")
 
 
 def chars_of(s):
