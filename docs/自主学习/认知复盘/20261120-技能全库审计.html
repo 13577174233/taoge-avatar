@@ -37,15 +37,15 @@ tr:last-child td{border-bottom:none}
 <div><b>458</b><span>技能总数</b><br><span>激活 408 / 停用桩 51</span></div>
 <div><b>149</b><span>taoge 私有包</b><br><span>激活 138</span></div>
 <div><b>0</b><span>真实断链</b><br><span>已过滤模板占位</span></div>
-<div><b>9</b><span>本轮修复包</b><br><span>8 升级 + 1 去重下线</span></div>
+<div><b>13</b><span>本轮修复包</b><br><span>12 升级 + 1 去重下线</span></div>
 </div>
 
 <h2>一、结构性完整度（当前主短板）</h2>
 <table>
 <tr><th>维度</th><th>缺失数</th><th>含义</th><th>判断</th></tr>
-<tr><td>缺「适用边界」</td><td>99 / 138</td><td>没写这门课不解决什么</td><td><span class="tag bad">高优先</span></td></tr>
-<tr><td>缺「失败模式」</td><td>116 / 138</td><td>没写数据取不到、口径打架怎么办</td><td><span class="tag bad">高优先</span></td></tr>
-<tr><td>缺「速查表」</td><td>45 / 138</td><td>没有「用户问 A → 先看 B」索引</td><td><span class="tag">中优先</span></td></tr>
+<tr><td>缺「适用边界」</td><td>97 / 138</td><td>没写这门课不解决什么</td><td><span class="tag bad">高优先</span></td></tr>
+<tr><td>缺「失败模式」</td><td>113 / 138</td><td>没写数据取不到、口径打架怎么办</td><td><span class="tag bad">高优先</span></td></tr>
+<tr><td>缺「速查表」</td><td>41 / 138</td><td>没有「用户问 A → 先看 B」索引</td><td><span class="tag">中优先</span></td></tr>
 <tr><td>缺版本号</td><td>0</td><td>全部带 version</td><td><span class="tag ok">已达标</span></td></tr>
 </table>
 <div class="note">初版正则把 <code>version: "1.0.0"</code> 误判为无版本（虚报 99），修正后为 0；上表数字为修正口径。</div>
@@ -55,6 +55,7 @@ tr:last-child td{border-bottom:none}
 <tr><th>动作</th><th>对象</th><th>证据</th></tr>
 <tr><td>补三节并升版 1.1.0</td><td>8 个最薄包</td><td>ent-industry-analysis 1,807→2,836 B；first-principles 1,818→2,843 B；zettelkasten 1,858→2,752 B；decision-journal 1,945→2,806 B；invest-market 2,050→3,091 B；bias-detector 2,096→3,000 B；ecom-market 2,257→3,190 B；law-risk 2,620→3,546 B</td></tr>
 <tr><td>去重下线</td><td>taoge-cognition-expert-handbook-driver</td><td>与 taoge-cognition-wg-driver 均为万维钢 WG01–WG40，编号交集 40/40、无独有律；改为停用桩，备份 /tmp/expert-handbook-20261120.bak</td></tr>
+<tr><td>B1 试点扩至 4 个高频包</td><td>cognitive-os / ecom-annual-planning / invest-daily-report / edu-private-advisory</td><td>均补边界+失败模式+速查，版本分别 2.3.1 / 1.1.0 / 1.1.0 / v1.3</td></tr>
 <tr><td>统计口径修正</td><td>审计脚本</td><td>版本号正则误报 99 → 0</td></tr>
 </table>
 
@@ -84,7 +85,7 @@ tr:last-child td{border-bottom:none}
 <h2>五、下一阶段再蒸馏</h2>
 <table>
 <tr><th>批次</th><th>范围</th><th>动作</th></tr>
-<tr><td>B1 · 20 个</td><td>高频包（cognitive-os / avatar / invest-daily-report / ecom-annual-planning / edu-private-advisory / read-system / distill-bottle）</td><td>补适用边界 + 失败模式</td></tr>
+<tr><td>B1 · 已试点 4 个 / 余 16</td><td>高频包（cognitive-os / avatar / invest-daily-report / ecom-annual-planning / edu-private-advisory / read-system / distill-bottle）</td><td>补适用边界 + 失败模式</td></tr>
 <tr><td>B2 · 20 个</td><td>电商 12 + 教育 8</td><td>补速查表 + 口径声明</td></tr>
 <tr><td>B3 · 59 个</td><td>课程驱动包（cognition-* / invest-* / ecom-*）</td><td>补适用边界，防跨域误用</td></tr>
 </table>
