@@ -1,6 +1,6 @@
 ---
 name: taoge-cognition-training-driver
-version: "1.1.0"
+version: v1.1.1
 description: 认知训练驱动包（slug=taoge-cognition-training-driver）。把王烁《30天认知训练营》三季102讲蒸馏的C系列90律（C01-C90）封装为跨项目可复用框架：直面现实→认识大势→洞察组织→加持技能→打磨思维→面对天命→财略人间世→社会动力学→博弈论→统计思维→权谋。当需要训练判断力、识别思维陷阱、做艰难决策、复盘认知偏差、防骗防PUA、或在电商/投资/教育/人际/新媒体场景调用认知训练模型时调用；也用于与其他项目技能（ecommerce-* / taoge-edu-private-advisory / taoge-avatar / taoge-distill-bottle）组合迭代。
 ---
 
@@ -182,3 +182,11 @@ description: 认知训练驱动包（slug=taoge-cognition-training-driver）。�
 - 如果用户要标准答案 → 给判断框架＋两种相反结论各自的证据。
 - 如果场景跨域 → 只迁移同构结构，不复用结论。
 - 如果律与律冲突 → 列出适用条件差异，让用户按条件选。
+
+## 速查表
+
+| 用户问 | 先看什么 | 落到哪 |
+|---|---|---|
+| 这事是不是坑 | 防骗模块 | 核查清单 |
+| 信息不全怎么决 | 概率与贝叶斯线 | 决策结论 |
+| 怎么不被情绪带走 | 自我管理线 | 日课 |
