@@ -1,6 +1,6 @@
 ---
 name: taoge-cognition-training-distiller
-version: v1.0.1
+version: v1.0.2
 description: 认知训练蒸馏包（slug=taoge-cognition-training-distiller）。把认知革命项目《30天认知训练营》三季（王烁，财新总编）92篇归档蒸馏的89个认知模型（C01-C89）封装为跨项目可复用框架：防骗识别/风险管理/博弈判断/制度权谋/自我管理五大域。当需要识别骗局与话术、风险分阶与量化、判断博弈正和零和、做一次性重大决策、设计制度机制、评估趋势概率、或把认知训练思维引入电商/投资/教育/组织等业务决策时调用；也用于与其他项目技能（ecommerce-* / taoge-invest-daily-report / taoge-edu-private-advisory / taoge-avatar）组合迭代。
 ---
 
@@ -116,3 +116,11 @@ description: 认知训练蒸馏包（slug=taoge-cognition-training-distiller）�
 - 如果用户要标准答案 → 给判断框架＋反例，不下单一结论。
 - 如果场景超出五域 → 只迁移结构，不复用结论。
 - 如果与 `taoge-cognition-training-driver` 命中同一律 → 优先 driver，本包只做索引。
+
+## 速查表
+
+| 用户问 | 先看什么 | 落到哪 |
+|---|---|---|
+| 这个模型讲什么 | 89 模型索引（C01–C89） | 卡片摘要 |
+| 防骗怎么用 | 防骗域精选 | 三条检查 |
+| 和 driver 什么区别 | 索引 vs 框架 | driver 出判断 |
