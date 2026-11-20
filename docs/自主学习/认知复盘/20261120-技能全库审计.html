@@ -37,15 +37,15 @@ tr:last-child td{border-bottom:none}
 <div><b>458</b><span>技能总数</b><br><span>激活 408 / 停用桩 51</span></div>
 <div><b>149</b><span>taoge 私有包</b><br><span>激活 138</span></div>
 <div><b>0</b><span>真实断链</b><br><span>已过滤模板占位</span></div>
-<div><b>13</b><span>本轮修复包</b><br><span>12 升级 + 1 去重下线</span></div>
+<div><b>29</b><span>本轮修复包</b><br><span>28 升级 + 1 去重下线</span></div>
 </div>
 
 <h2>一、结构性完整度（当前主短板）</h2>
 <table>
 <tr><th>维度</th><th>缺失数</th><th>含义</th><th>判断</th></tr>
-<tr><td>缺「适用边界」</td><td>97 / 138</td><td>没写这门课不解决什么</td><td><span class="tag bad">高优先</span></td></tr>
-<tr><td>缺「失败模式」</td><td>113 / 138</td><td>没写数据取不到、口径打架怎么办</td><td><span class="tag bad">高优先</span></td></tr>
-<tr><td>缺「速查表」</td><td>41 / 138</td><td>没有「用户问 A → 先看 B」索引</td><td><span class="tag">中优先</span></td></tr>
+<tr><td>缺「适用边界」</td><td>87 / 138</td><td>没写这门课不解决什么</td><td><span class="tag bad">高优先</span></td></tr>
+<tr><td>缺「失败模式」</td><td>98 / 138</td><td>没写数据取不到、口径打架怎么办</td><td><span class="tag bad">高优先</span></td></tr>
+<tr><td>缺「速查表」</td><td>30 / 138</td><td>没有「用户问 A → 先看 B」索引</td><td><span class="tag">中优先</span></td></tr>
 <tr><td>缺版本号</td><td>0</td><td>全部带 version</td><td><span class="tag ok">已达标</span></td></tr>
 </table>
 <div class="note">初版正则把 <code>version: "1.0.0"</code> 误判为无版本（虚报 99），修正后为 0；上表数字为修正口径。</div>
@@ -85,11 +85,18 @@ tr:last-child td{border-bottom:none}
 <h2>五、下一阶段再蒸馏</h2>
 <table>
 <tr><th>批次</th><th>范围</th><th>动作</th></tr>
-<tr><td>B1 · 已试点 4 个 / 余 16</td><td>高频包（cognitive-os / avatar / invest-daily-report / ecom-annual-planning / edu-private-advisory / read-system / distill-bottle）</td><td>补适用边界 + 失败模式</td></tr>
+<tr><td>B1 · 20 个已完成</td><td>高频包（cognitive-os / avatar / invest-daily-report / ecom-annual-planning / edu-private-advisory / read-system / distill-bottle）</td><td>补适用边界 + 失败模式</td></tr>
 <tr><td>B2 · 20 个</td><td>电商 12 + 教育 8</td><td>补速查表 + 口径声明</td></tr>
 <tr><td>B3 · 59 个</td><td>课程驱动包（cognition-* / invest-* / ecom-*）</td><td>补适用边界，防跨域误用</td></tr>
 </table>
 <div class="note">再蒸馏不加新律：现有 6,297 模型量已够，缺的是边界、兜底、一行索引。模板已在 8 个包中定型，后续照抄结构换内容。</div>
 </div>
+<h2>六、B1 收口（20 个）</h2>
+<table>
+<tr><th>批次</th><th>包</th><th>补的内容</th></tr>
+<tr><td>前 4</td><td>cognitive-os / ecom-annual-planning / invest-daily-report / edu-private-advisory</td><td>三节齐补</td></tr>
+<tr><td>后 16</td><td>revolution-partners、invest-thinking、ecom-marketing、user-asset、price-governance、product-architecture、cs-kb-ops、holiday-report、edu-gaokao-pathways、edu-volunteer-filling、cognition-training、health-advisory、content-xhs-note、read-system、content-creation、invest-distill</td><td>按各包缺口补边界/失败/速查</td></tr>
+</table>
+<div class="note">剩余：缺边界 87、缺失败 98、缺速查 30，转入 B2/B3 批次。</div>
 </body>
 </html>
